@@ -16,7 +16,7 @@ body {
 
 .container
 {
-    position: relative;
+    position: absolute;
     left: -30%;
     width: 100%;
     display: flex;
