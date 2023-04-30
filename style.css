@@ -16,8 +16,8 @@ body {
 
 .container
 {
-    position: absolute;
-    left: -25%;
+    position: relative;
+    left: -30%;
     width: 100%;
     display: flex;
     justify-content: center;
