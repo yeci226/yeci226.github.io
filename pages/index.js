@@ -13,31 +13,12 @@ export default function Home() {
       <Header />
 
       <main>
-        <h1 className={styles.title}>This is AET 2023</h1>
-
-        <p className={styles.description}>Hello</p>
-
-        <div className={styles.grid}>
-          <a href="/" className={styles.card}>
-            <h3>a</h3>
-            <p>description</p>
-          </a>
-
-          <a href="/" className={styles.card}>
-            <h3>a</h3>
-            <p>description</p>
-          </a>
-
-          <a href="/" className={styles.card}>
-            <h3>a</h3>
-            <p>description</p>
-          </a>
-
-          <a href="/" className={styles.card}>
-            <h3>a</h3>
-            <p>description</p>
-          </a>
-        </div>
+        <img src="/AET2023-1.png" width="612" height="265" alt="" />
+        <br></br>
+        <br></br>
+        <a className="btn btn-dark btn-lg" role="button">
+          立即報名
+        </a>
       </main>
 
       <footer>
@@ -74,7 +55,76 @@ export default function Home() {
           justify-content: center;
           align-items: center;
           text-decoration: none;
-          color: inherit;
+          color: #fff;
+        }
+        .btn:hover {
+          color: #212529;
+          text-decoration: none;
+        }
+
+        .btn:focus,
+        .btn.focus {
+          outline: 0;
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .btn.disabled,
+        .btn:disabled {
+          opacity: 0.65;
+        }
+
+        a.btn.disabled,
+        fieldset:disabled a.btn {
+          pointer-events: none;
+        }
+
+        .btn-dark {
+          color: #fff;
+          background-color: #343a40;
+          border-color: #343a40;
+        }
+
+        .btn-dark:hover {
+          color: #fff;
+          background-color: #23272b;
+          border-color: #1d2124;
+        }
+
+        .btn-dark:focus,
+        .btn-dark.focus {
+          color: #fff;
+          background-color: #23272b;
+          border-color: #1d2124;
+          box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+        }
+
+        .btn-dark.disabled,
+        .btn-dark:disabled {
+          color: #fff;
+          background-color: #343a40;
+          border-color: #343a40;
+        }
+
+        .btn-dark:not(:disabled):not(.disabled):active,
+        .btn-dark:not(:disabled):not(.disabled).active,
+        .show > .btn-dark.dropdown-toggle {
+          color: #fff;
+          background-color: #1d2124;
+          border-color: #171a1d;
+        }
+
+        .btn-dark:not(:disabled):not(.disabled):active:focus,
+        .btn-dark:not(:disabled):not(.disabled).active:focus,
+        .show > .btn-dark.dropdown-toggle:focus {
+          box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+        }
+
+        .btn-lg,
+        .btn-group-lg > .btn {
+          padding: 0.5rem 1rem;
+          font-size: 1.25rem;
+          line-height: 1.5;
+          border-radius: 0.3rem;
         }
       `}</style>
 
@@ -92,7 +142,7 @@ export default function Home() {
 
         body::after {
           content: "";
-          background: url("/bg.jpg") no-repeat center center fixed;
+          background: url("/background.gif") no-repeat center center fixed;
           background-size: cover;
           position: absolute;
           top: 0;
@@ -100,7 +150,6 @@ export default function Home() {
           right: 0;
           bottom: 0;
           z-index: -1;
-          filter: grayscale(75%);
         }
 
         * {

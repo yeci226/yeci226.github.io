@@ -5,11 +5,14 @@ export default function Header() {
     <div className="header">
       <div className="logo">
         <a href="/">
-          <Image src="/logo.png" width={163} height={73} />
+          <Image src="/logoNText.png" width={128} height={92} />
         </a>
       </div>
       <nav className="menu">
         <div className="link-wrapper">
+          <a className="link" href="#about">
+            關於AET
+          </a>
           <a
             className="link"
             href="https://discord.gg/y3DKVXZxUt"
@@ -23,20 +26,19 @@ export default function Header() {
 
       <style jsx>{`
         .header {
-          position: fixed;
+          position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background-color: #fff;
           padding: 0px;
-          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
           z-index: 1000;
         }
         .logo {
-          margin-right: 15px;
+          margin-left: 15px;
+          margin-top: 15px;
           cursor: pointer;
         }
         .menu {
@@ -51,7 +53,7 @@ export default function Header() {
           position: relative;
           overflow: hidden;
           font-size: 24px;
-          color: #000;
+          color: #fff;
         }
         .link-wrapper a::after {
           content: "";
