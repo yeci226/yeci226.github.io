@@ -1,16 +1,27 @@
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Header() {
+  const router = useRouter();
+  const [isOnHomepage, setIsOnHomepage] = useState(true);
+
+  useEffect(() => {
+    setIsOnHomepage(router.pathname === "/");
+  }, [router.pathname]);
+
   return (
     <div className="header">
-      <div className="logo">
-        <a href="/">
-          <Image src="/logoNText.png" width={128} height={92} />
-        </a>
+      <div className={`logo-container ${isOnHomepage ? "hidden" : ""}`}>
+        <div className="logo">
+          <a href="/">
+            <Image src="/AET2023-1.png" width={250} height={110} />
+          </a>
+        </div>
       </div>
       <nav className="menu">
         <div className="link-wrapper">
-          <a className="link" href="#about">
+          <a className="link" href="/about">
             關於AET
           </a>
           <a
@@ -36,10 +47,23 @@ export default function Header() {
           padding: 0px;
           z-index: 1000;
         }
-        .logo {
+        .logo-container {
+          display: flex;
+          align-items: center;
           margin-left: 15px;
           margin-top: 15px;
+          transition: transform 0.5s;
+        }
+        .logo {
           cursor: pointer;
+        }
+        .logo-container.hidden {
+          transform: translateX(-150%);
+        }
+        .text {
+          margin-left: 10px;
+          font-size: 24px;
+          color: #fff;
         }
         .menu {
           display: flex;
