@@ -18,7 +18,11 @@ export default function Home() {
         <img src="/AET2023-1.png" width="612" height="265" alt="" />
         <br></br>
         <br></br>
-        <a href="" className="btn btn-dark btn-lg" role="button">
+        <a
+          href="https://forms.gle/Wp4TyX4Gi8cds6Dg9"
+          className="btn btn-dark btn-lg"
+          role="button"
+        >
           立即報名
         </a>
       </main>
