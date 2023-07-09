@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
+import BackgroundVideo from "../components/bg";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <link rel="icon" href="/icon.ico" />
       </Head>
 
+      <BackgroundVideo />
       <Header />
 
       <main>
@@ -138,18 +140,6 @@ export default function Home() {
             Helvetica Neue, sans-serif;
           position: relative;
           overflow: hidden;
-        }
-
-        body::after {
-          content: "";
-          background: url("/background.gif") no-repeat center center fixed;
-          background-size: cover;
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: -1;
         }
 
         * {

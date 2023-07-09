@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
+import BackgroundVideo from "../components/bg";
 
 export default function About() {
   return (
@@ -10,12 +11,18 @@ export default function About() {
         <link rel="icon" href="/icon.ico" />
       </Head>
 
+      <BackgroundVideo />
       <Header />
 
       <main>
         <h1>關於 AET</h1>
 
-        <p>我玩原神，原神怎麼了你？</p>
+        <p>
+          AET集結來自東亞各處熱愛《荒野亂鬥》的玩家，舉辦一年一次的交流錦標賽。
+        </p>
+        <p>
+          迄今已連續舉辦三屆，每屆都受到廣大玩家的熱情支持。馬上加入，和我們一同享受亂鬥的樂趣！
+        </p>
       </main>
 
       <footer>
@@ -42,6 +49,7 @@ export default function About() {
           color: #fff;
         }
         p {
+          margin-bottom: 1px;
           font-size: 24px;
           color: #fff;
         }
