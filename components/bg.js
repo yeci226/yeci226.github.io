@@ -11,7 +11,7 @@ const BackgroundVideo = () => {
         muted
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
       >
-        <source src="/bg.mp4" type="video/webm" />
+        <source src="/bg.webm" type="video/webm" />
       </video>
     </div>
   );
