@@ -5,7 +5,9 @@ import BackgroundVideo from "../components/bg";
 
 export default function Home() {
   return (
+    
     <div className={styles.container}>
+      
       <Head>
         <title>AET 2023</title>
         <link rel="icon" href="/icon.ico" />
@@ -14,27 +16,18 @@ export default function Home() {
       <BackgroundVideo />
       <Header />
 
+
       <main>
         <img src="/AET2023-1.png" width="612" height="265" alt="" />
         <br></br>
         <br></br>
-        <a
-          href="https://forms.gle/Wp4TyX4Gi8cds6Dg9"
-          className="btn btn-dark btn-lg"
-          role="button"
-        >
-          立即報名
+        <a className="btn btn-dark btn-lg" role="button">
+          "立即報名"
         </a>
       </main>
 
       <footer>
-        <a
-          href="https://github.com/yeci226"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by Yeci
-        </a>
+       
       </footer>
 
       <style jsx>{`
