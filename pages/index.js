@@ -22,7 +22,7 @@ export default function Home() {
         <br></br>
         <br></br>
         <a className="btn btn-dark btn-lg" role="button">
-          "立即報名"
+          立即報名
         </a>
       </main>
 
