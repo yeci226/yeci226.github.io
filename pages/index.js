@@ -23,9 +23,7 @@ export default function Home() {
         <img src="/AET2023-1.png" width="612" height="265" alt="" />
         <br></br>
         <br></br>
-        <a className="btn btn-dark btn-lg" role="button">
-          立即報名
-        </a>
+        <a className="btn btn-dark btn-lg" role="button">立即報名</a>
       </main>
 
       <style jsx>{`

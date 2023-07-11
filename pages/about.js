@@ -11,7 +11,6 @@ export default function About() {
         <link rel="icon" href="/icon.ico" />
       </Head>
 
-      <BackgroundVideo />
       <Header />
 
       <main>
@@ -24,16 +23,6 @@ export default function About() {
           迄今已連續舉辦三屆，每屆舉辦都受到廣大玩家的熱情支持。馬上加入，和我們一同享受亂鬥的樂趣！
         </p>
       </main>
-
-      <footer>
-        <a
-          href="https://github.com/yeci226"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by Yeci
-        </a>
-      </footer>
 
       <style jsx>{`
         main {
