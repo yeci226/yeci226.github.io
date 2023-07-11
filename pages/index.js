@@ -11,11 +11,13 @@ export default function Home() {
       <Head>
         <title>AET 2023</title>
         <link rel="icon" href="/icon.ico" />
+        <meta name="description" content="⟪荒野亂鬥⟫ AET 賽事官方網頁"/>
+        <meta name="keywords" content="aetbrawl, aet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
 
       <BackgroundVideo />
       <Header />
-
 
       <main>
         <img src="/AET2023-1.png" width="612" height="265" alt="" />
@@ -25,10 +27,6 @@ export default function Home() {
           立即報名
         </a>
       </main>
-
-      <footer>
-       
-      </footer>
 
       <style jsx>{`
         main {
