@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
-import BackgroundVideo from "../components/bg";
+
 
 export default function About() {
   return (
@@ -10,6 +10,7 @@ export default function About() {
         <title>About AET</title>
         <link rel="icon" href="/icon.ico" />
       </Head>
+
 
       <Header />
 
@@ -23,6 +24,16 @@ export default function About() {
           迄今已連續舉辦三屆，每屆舉辦都受到廣大玩家的熱情支持。馬上加入，和我們一同享受亂鬥的樂趣！
         </p>
       </main>
+
+      <footer>
+        <a
+          href="https://github.com/yeci226"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by Yeci
+        </a>
+      </footer>
 
       <style jsx>{`
         main {

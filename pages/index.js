@@ -1,30 +1,46 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
-import BackgroundVideo from "../components/bg";
+import { SignUpClick } from '../js/cookiesocute';
 
 export default function Home() {
   return (
     
+    
     <div className={styles.container}>
+      
       
       <Head>
         <title>AET 2023</title>
         <link rel="icon" href="/icon.ico" />
-        <meta name="description" content="⟪荒野亂鬥⟫ AET 賽事官方網頁"/>
-        <meta name="keywords" content="aetbrawl, aet"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
 
-      <BackgroundVideo />
+      <div style={{ position: "fixed", width: "100%", height: "100%", zIndex: -1 }}>
+        <video autoPlay loop muted style={{ width: "100%", height: "100%", objectFit: "cover" }}>
+          <source src="/bg.webm" type="video/webm"/>
+        </video>
+      </div>
+      
       <Header />
 
       <main>
-        <img src="/AET2023-1.png" width="612" height="265" alt="" />
-        <br></br>
-        <br></br>
-        <a className="btn btn-dark btn-lg" role="button">立即報名</a>
+
+        <div className={styles.logoContainer}>
+          <img src="/AET2023-1.png" alt="Logo" className={styles.logo} />
+        </div>
+        
+        <div className={styles.buttonContainer}>
+          <button onClick={SignUpClick} className={styles.button}>
+            立即報名
+          </button>
+        </div>
+        
+
       </main>
+
+      <footer>
+       
+      </footer>
 
       <style jsx>{`
         main {

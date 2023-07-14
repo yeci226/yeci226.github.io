@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import styles from "../styles/Home.module.css";
+import { DiscordClick } from '../js/cookiesocute';
 
 export default function Header() {
   const router = useRouter();
@@ -24,14 +26,9 @@ export default function Header() {
           <a className="link" href="/about">
             關於AET
           </a>
-          <a
-            className="link"
-            href="https://discord.gg/y3DKVXZxUt"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <button className={styles.discord_button} onClick={DiscordClick} target="_blank">
             Discord
-          </a>
+          </button>
         </div>
       </nav>
 
