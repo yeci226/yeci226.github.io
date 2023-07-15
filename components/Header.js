@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 import { DiscordClick } from '../js/cookiesocute';
 
 export default function Header() {
+  
   const router = useRouter();
   const [isOnHomepage, setIsOnHomepage] = useState(true);
 

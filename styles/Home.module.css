@@ -81,4 +81,32 @@
   margin-right: 20px;
 }
 
+.about_container {
+  width: 80rem;
+  margin: 10 auto;
+  padding: 40px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about_title {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.about_textSpace {
+  margin-bottom: 20px;
+}
+
+.about_logo {
+  width: 200px;
+  height: auto;
+}
+
+.about_videoContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
 
