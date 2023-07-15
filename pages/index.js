@@ -17,14 +17,19 @@ export default function Home() {
     
     <div className={styles.container}>
       
-      
       <Head>
         <title>AET 2023</title>
         <link rel="icon" href="/icon.ico" />
+        <meta name="description" content="AET集結來自東亞各處熱愛《荒野亂鬥》的玩家，舉辦一年一次的交流錦標賽。迄今已連續舉辦三屆，每屆都受到廣大玩家的熱情支持。馬上加入，和我們一同享受亂鬥的樂趣！"/>
+        <meta name="keywords" content="AET, 荒野亂鬥, 荒野比賽, 荒野亂鬥比賽"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <noscript>
+          <p>此網頁需要支援 JavaScript 才能正確運行，請先至你的瀏覽器設定中開啟 JavaScript。</p>
+        </noscript>
       </Head>
 
       {isMobile ? (
-        <div className={styles.mobileBackground} style={{ backgroundImage: 'url(/bg_img.png)' }}/>
+        <div style={{ position: "fixed", width: "100%", height: "100%", zIndex: -1, backgroundImage: 'url(/bg_img.png)' }}/>
       ) : (
         <div style={{ position: "fixed", width: "100%", height: "100%", zIndex: -1 }}>
           <video autoPlay loop muted style={{ width: "100%", height: "100%", objectFit: "cover" }}>
@@ -56,120 +61,7 @@ export default function Home() {
        
       </footer>
 
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        footer {
-          width: 100%;
-          height: 50px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: #fff;
-        }
-        .btn:hover {
-          color: #212529;
-          text-decoration: none;
-        }
-
-        .btn:focus,
-        .btn.focus {
-          outline: 0;
-          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-        }
-
-        .btn.disabled,
-        .btn:disabled {
-          opacity: 0.65;
-        }
-
-        a.btn.disabled,
-        fieldset:disabled a.btn {
-          pointer-events: none;
-        }
-
-        .btn-dark {
-          text-decoration: none;
-          color: #fff;
-          background-color: #343a40;
-          border-color: #343a40;
-        }
-
-        .btn-dark:hover {
-          color: #fff;
-          background-color: #23272b;
-          border-color: #1d2124;
-        }
-
-        .btn-dark:focus,
-        .btn-dark.focus {
-          color: #fff;
-          background-color: #23272b;
-          border-color: #1d2124;
-          box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
-        }
-
-        .btn-dark.disabled,
-        .btn-dark:disabled {
-          color: #fff;
-          background-color: #343a40;
-          border-color: #343a40;
-        }
-
-        .btn-dark:not(:disabled):not(.disabled):active,
-        .btn-dark:not(:disabled):not(.disabled).active,
-        .show > .btn-dark.dropdown-toggle {
-          color: #fff;
-          background-color: #1d2124;
-          border-color: #171a1d;
-        }
-
-        .btn-dark:not(:disabled):not(.disabled):active:focus,
-        .btn-dark:not(:disabled):not(.disabled).active:focus,
-        .show > .btn-dark.dropdown-toggle:focus {
-          box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
-        }
-
-        .btn-lg,
-        .btn-group-lg > .btn {
-          padding: 0.75rem 1.25rem;
-          font-size: 1.75rem;
-          line-height: 1.5;
-          border-radius: 0.3rem;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: Lilita One, -apple-system, BlinkMacSystemFont, Segoe UI,
-            Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-            Helvetica Neue, sans-serif;
-          position: relative;
-          overflow: hidden;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
+      
     </div>
   );
 }

@@ -26,6 +26,12 @@ export default function Header() {
           <a className="link" href="/about">
             關於AET
           </a>
+          <a className="link" href="/about">
+            賽制介紹
+          </a>
+          <a className="link" href="/about">
+            比賽直播
+          </a>
           <button className={styles.discord_button} onClick={DiscordClick} target="_blank">
             Discord
           </button>
