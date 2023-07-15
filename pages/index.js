@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
+import { useEffect, useState } from 'react';
 import { SignUpClick, isMobileDevice } from '../js/cookiesocute';
 
 export default function Home() {
