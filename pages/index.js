@@ -1,9 +1,16 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
-import { SignUpClick } from '../js/cookiesocute';
+import { SignUpClick, isMobileDevice } from '../js/cookiesocute';
 
 export default function Home() {
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(isMobileDevice());
+  }, []);
+
   return (
     
     
@@ -15,11 +22,17 @@ export default function Home() {
         <link rel="icon" href="/icon.ico" />
       </Head>
 
-      <div style={{ position: "fixed", width: "100%", height: "100%", zIndex: -1 }}>
-        <video autoPlay loop muted style={{ width: "100%", height: "100%", objectFit: "cover" }}>
-          <source src="/bg.webm" type="video/webm"/>
-        </video>
-      </div>
+      {isMobile ? (
+        <div className={styles.mobileBackground} style={{ backgroundImage: 'url(/bg_img.png)' }}/>
+      ) : (
+        <div style={{ position: "fixed", width: "100%", height: "100%", zIndex: -1 }}>
+          <video autoPlay loop muted style={{ width: "100%", height: "100%", objectFit: "cover" }}>
+            <source src="/bg.webm" type="video/webm"/>
+          </video>
+        </div>
+      )}
+
+      
       
       <Header />
 
