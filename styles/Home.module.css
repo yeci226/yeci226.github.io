@@ -11,13 +11,14 @@
 
 .video {
   position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  object-fit: cover;
-  padding:0;
-  margin:0;
+  height: 100%;
+  overflow: hidden;
   z-index: -1;
+  object-fit: cover;
 }
 
 .content {
