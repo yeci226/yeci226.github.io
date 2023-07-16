@@ -85,62 +85,7 @@
   margin-right: 20px;
 }
 
-.about_container {
-  width: 80rem;
-  height: 2000px;
-  margin-top: 170px;
-  margin-bottom: 30px;
-  padding: 40px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-}
 
-.about_title {
-  font-size: 60px;
-  font-weight: bold;
-  font-family: 'Noto Sans TC', sans-serif;
-}
-
-.about_textSpace {
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-family: 'Noto Sans TC', sans-serif;
-}
-
-.about_logo {
-  width: 200px;
-  height: auto;
-}
-
-.about_videoContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.staffContainer {
-  margin-top: 50px;
-  font-family: 'Noto Sans TC', sans-serif;
-}
-
-.staffList {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  font-family: 'Noto Sans TC', sans-serif;
-}
-
-.staffMember {
-  text-align: center;
-}
-
-.avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-}
 
 
 
