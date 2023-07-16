@@ -14,7 +14,7 @@
     {
       "id": 3,
       "name": "AJ",
-      "job": "大南瓜",
+      "job": "大南瓜擔當",
       "avatar": "https://cdn.discordapp.com/avatars/718672740785193020/fd99143b30adb36a8ae079fd67376a56.png"
     },
     {
@@ -62,18 +62,24 @@
     },
     {
       "id": 11,
+      "name": "RayBoy",
+      "job": "賽務人員",
+      "avatar": "https://cdn.discordapp.com/avatars/648851163852046357/b5127111a6ae59af77c3b361b7e87b33.png"
+    },
+    {
+      "id": 12,
       "name": "Mr.Pillow 枕頭先生",
       "job": "美編設計",
       "avatar": "https://cdn.discordapp.com/avatars/743856200743125093/381785bfa5e24ed994d92f5f6476e1d1.png"
     },
     {
-      "id": 12,
+      "id": 13,
       "name": "Moko 墨可",
       "job": "美編設計",
       "avatar": "https://cdn.discordapp.com/avatars/774977328224141332/3a29da4d5f4e0e42fd9e62c458e5c5f2.png"
     },
     {
-      "id": 13,
+      "id": 14,
       "name": "達里王",
       "job": "美編設計",
       "avatar": "https://cdn.discordapp.com/avatars/607140611631480832/463879d8b4e7ad1cdf40e4a9d8595dca.png"
