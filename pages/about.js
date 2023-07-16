@@ -34,6 +34,7 @@ export default function About() {
       <Head>
         <title>關於 AET</title>
         <link rel="icon" href="/icon.ico" />
+        <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
       </Head>
 
 
