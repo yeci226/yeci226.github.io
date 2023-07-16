@@ -29,9 +29,9 @@ export default function Home() {
       </Head>
 
       {isMobile ? (
-        <div style={{ position: "fixed", width: "100%", height: "100%", zIndex: -1, backgroundImage: 'url(/bg_img.png)' }}/>
+        <div style={{ position: "absolute", width: "100%", height: "100%", zIndex: -1, backgroundImage: 'url(/bg_img.png)' }}/>
       ) : (
-        <div style={{ position: "fixed", width: "100%", height: "100%", zIndex: -1 }}>
+        <div className={styles.video}>
           <video autoPlay loop muted style={{ width: "100%", height: "100%", objectFit: "cover" }}>
             <source src="/bg.webm" type="video/webm"/>
           </video>
