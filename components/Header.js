@@ -2,10 +2,9 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
-import { DiscordClick } from '../js/cookiesocute';
+import { DiscordClick } from "../js/cookiesocute";
 
 export default function Header() {
-  
   const router = useRouter();
   const [isOnHomepage, setIsOnHomepage] = useState(true);
 
@@ -33,7 +32,7 @@ export default function Header() {
           <a className="link" href="/about">
             比賽直播
           </a>
-          <button className={styles.discord_button} onClick={DiscordClick} target="_blank">
+          <button className={styles.discord_button} onClick={DiscordClick}>
             Discord
           </button>
         </div>
