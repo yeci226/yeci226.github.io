@@ -8,5 +8,5 @@ export const SignUpClick = () => {
 };
 
 export const DiscordClick = () => {
-  window.location.href = "/discord";
+  window.open("https://discord.gg/qaWtVXq82d", "_blank");
 };
