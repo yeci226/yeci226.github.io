@@ -7,6 +7,7 @@ import { DiscordClick } from "../js/cookiesocute";
 export default function Header() {
   const router = useRouter();
   const [isOnHomepage, setIsOnHomepage] = useState(true);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
 
   useEffect(() => {
     setIsOnHomepage(router.pathname === "/");
@@ -23,15 +24,23 @@ export default function Header() {
       </div>
       <nav className="menu">
         <div className="link-wrapper">
-          <a className="link" href="/about">
-            關於AET
-          </a>
-          <a className="link" href="/about">
-            賽制介紹
-          </a>
-          <a className="link" href="/about">
-            比賽直播
-          </a>
+          <div
+            className="link dropdown-link"
+            onClick={() => setDropdownVisible(!dropdownVisible)}
+          >
+            <a>賽事資訊</a>
+            <ul className={`dropdown ${dropdownVisible ? "visible" : ""}`}>
+              <li>
+                <a href="/about">關於AET</a>
+              </li>
+              <li>
+                <a href="/rules">賽制介紹</a>
+              </li>
+              <li>
+                <a href="/live">比賽直播</a>
+              </li>
+            </ul>
+          </div>
           <button className={styles.discord_button} onClick={DiscordClick}>
             Discord
           </button>
@@ -58,12 +67,14 @@ export default function Header() {
           transition: transform 0.5s;
         }
         .logo {
+          user-select: none;
           cursor: pointer;
         }
         .logo-container.hidden {
           transform: translateX(-150%);
         }
         .text {
+          user-select: none;
           margin-left: 10px;
           font-size: 24px;
           color: #fff;
@@ -71,7 +82,13 @@ export default function Header() {
         .menu {
           display: flex;
         }
+        .link-wrapper {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+        }
         .link-wrapper a {
+          user-select: none;
           text-decoration: none;
           margin-right: 30px;
           border-radius: 10px;
@@ -93,6 +110,27 @@ export default function Header() {
         }
         .link-wrapper a:hover::after {
           right: 0;
+        }
+        .dropdown-link {
+          position: relative;
+        }
+        .dropdown {
+          max-height: 0;
+          overflow: hidden;
+          position: absolute;
+          list-style-type: none;
+          padding: 0 0;
+          transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+        .dropdown.visible {
+          max-height: 200px;
+          padding: 15px 0;
+        }
+        .dropdown li a {
+          display: block;
+          padding: 5px 10px;
+          color: #fff;
+          text-decoration: none;
         }
       `}</style>
     </div>
