@@ -88,6 +88,7 @@ export default function Header() {
           align-items: center;
         }
         .link-wrapper a {
+          white-space: nowrap;
           user-select: none;
           text-decoration: none;
           margin-right: 30px;
@@ -115,6 +116,7 @@ export default function Header() {
           position: relative;
         }
         .dropdown {
+          white-space: nowrap;
           max-height: 0;
           overflow: hidden;
           position: absolute;
@@ -127,15 +129,11 @@ export default function Header() {
           padding: 15px 0;
         }
         .dropdown li a {
+          white-space: nowrap;
           display: block;
           padding: 5px 10px;
           color: #fff;
           text-decoration: none;
-        }
-        @media (max-width: 480px) {
-          .dropdown li a {
-            white-space: nowrap;
-          }
         }
       `}</style>
     </div>
