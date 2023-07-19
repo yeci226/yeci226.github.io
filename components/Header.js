@@ -132,6 +132,11 @@ export default function Header() {
           color: #fff;
           text-decoration: none;
         }
+        @media (max-width: 480px) {
+          .dropdown li a {
+            white-space: nowrap;
+          }
+        }
       `}</style>
     </div>
   );
