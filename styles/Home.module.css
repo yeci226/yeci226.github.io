@@ -76,18 +76,7 @@
   transform: scale(1.5);
 }
 
-.discord_button {
-  user-select: none; 
-  padding: 10px 20px;
-  font-size: 24px;
-  background: none;
-  color: #fff;
-  border-color: #56abf9;
-  border-radius: 12px;
-  border-width: 3px;
-  cursor: pointer;
-  margin-right: 20px;
-}
+
 
 .discord_button:hover {
   color: #56abf9;
