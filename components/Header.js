@@ -39,6 +39,9 @@ export default function Header() {
               <li>
                 <a href="/live">比賽直播</a>
               </li>
+              <li>
+                <a href="/prize">獎品</a>
+              </li>
             </ul>
           </div>
           <button className={styles.discord_button} onClick={DiscordClick}>
@@ -128,6 +131,7 @@ export default function Header() {
           padding: 15px 0;
         }
         .dropdown li a {
+          text-align: center;
           white-space: nowrap;
           display: block;
           padding: 10px 10px;

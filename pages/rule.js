@@ -4,27 +4,11 @@ import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import { isMobileDevice, RuleClick } from "../js/cookiesocute";
 
-export default function About() {
+export default function Rule() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMobile(isMobileDevice());
-  }, []);
-
-  const [staffMembers, setStaffMembers] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/crew.json");
-        const data = await response.json();
-        setStaffMembers(data);
-      } catch (error) {
-        console.error("Error fetching staff data:", error);
-      }
-    };
-
-    fetchData();
   }, []);
 
   return (

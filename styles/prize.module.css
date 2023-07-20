@@ -1,0 +1,136 @@
+.container {
+  left: auto;
+  right: auto;
+  width: 70vw;
+  height: auto;
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  background-color: rgb(244, 244, 244);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.background_video {
+  user-select: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.background_image {
+  user-select: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.staticImagesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 30%;
+  height: 540px;
+}
+
+.staticImagesContainer img {
+  height: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+
+.album {
+  flex-basis: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 540px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.album img {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.slides {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  transition: transform 1s ease-in-out;
+}
+
+.album button {
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  transform: translateY(-50%);
+  z-index: 1;
+  border-color: #DDE6ED;
+  border-radius: 12px;
+  border-width: 3px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.album button:hover {
+  background-color: #ddd;
+}
+
+.album button:first-child {
+  left: 0;
+}
+
+.album button:last-child {
+  right: 0;
+}
+
+.indicatorContainer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ddd;
+  border-radius: 50%;
+}
+
+.activeIndicator {
+  background-color: #555;
+}

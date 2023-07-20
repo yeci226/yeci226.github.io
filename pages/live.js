@@ -5,7 +5,7 @@ import VideoGrid from "../components/VideoGrid";
 import { useEffect, useState } from "react";
 import { isMobileDevice } from "../js/cookiesocute";
 
-export default function About() {
+export default function Live() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
