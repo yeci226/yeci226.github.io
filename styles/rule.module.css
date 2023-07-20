@@ -15,20 +15,22 @@
 }
 
 .background_video {
+  user-select: none; 
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   overflow: hidden;
   z-index: -1;
 }
 
 .background_image {
+  user-select: none; 
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   overflow: hidden;
   z-index: -1;
@@ -40,38 +42,36 @@
     font-family: 'Noto Sans TC', sans-serif;
 }
   
-.textSpace {
+.text {
     margin-bottom: 10px;
-    font-size: 2vw;
+    font-size: 20px;
     font-family: 'Noto Sans TC', sans-serif;
 }
-  
-.logo {
-    width: 10vw;
-    height: auto;
 
+.buttonContainer {
+  display: flex;
+  justify-content: left;
+  margin-top: 50px;
 }
-  
-.staffContainer {
-    margin-top: 50px;
-    font-family: 'Noto Sans TC', sans-serif;
-  }
-  
-.staffList {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    font-family: 'Noto Sans TC', sans-serif;
-    margin-top: 5vh;
+
+.button {
+  user-select: none; 
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  background: none;
+  color: #526D82;
+  border-color: #9DB2BF;
+  border-radius: 12px;
+  border-width: 3px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  outline: none;
 }
-  
-.staffMember {
-    text-align: center;
-}
-  
-.avatar {
-    width: 10vh;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
+
+.button:hover {
+  color: #9DB2BF;
+  transform: scale(1.25);
 }

@@ -78,7 +78,10 @@
 
 
 
-
+.discord_button:hover {
+  color: #56abf9;
+  transform: scale(1.01);
+}
 
 
 

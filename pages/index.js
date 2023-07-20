@@ -20,12 +20,12 @@ export default function Home() {
           name="description"
           content="AET集結來自東亞各處熱愛《荒野亂鬥》的玩家，舉辦一年一次的交流錦標賽。迄今已連續舉辦三屆，每屆都受到廣大玩家的熱情支持。馬上加入，和我們一同享受亂鬥的樂趣！"
         />
+        <meta property="og:image" content="/logoNText.png" />
         <meta name="keywords" content="AET, 荒野亂鬥, 荒野比賽, 荒野亂鬥比賽" />
         <meta
           name="viewport"
           content="width=device-width,height=device-height,initial-scale=1.0"
         />
-        <meta property="og:image" content="/logoNText.png" />
         <noscript>
           <p>
             此網頁需要支援 JavaScript 才能正確運行，請先至你的瀏覽器設定中開啟
