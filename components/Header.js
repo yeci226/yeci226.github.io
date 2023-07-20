@@ -34,7 +34,7 @@ export default function Header() {
                 <a href="/about">關於AET</a>
               </li>
               <li>
-                <a href="/rules">賽制介紹</a>
+                <a href="/rule">賽制介紹</a>
               </li>
               <li>
                 <a href="/live">比賽直播</a>
@@ -92,7 +92,6 @@ export default function Header() {
           user-select: none;
           text-decoration: none;
           margin-right: 30px;
-          border-radius: 10px;
           padding: 5px 10px;
           text-decoration: none;
           position: relative;
@@ -131,8 +130,8 @@ export default function Header() {
         .dropdown li a {
           white-space: nowrap;
           display: block;
-          padding: 5px 10px;
-          color: #fff;
+          padding: 10px 10px;
+          color: #9db2bf;
           text-decoration: none;
         }
       `}</style>
