@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/nav.module.css";
 import { DiscordClick } from "../js/cookiesocute";
 
 export default function Header() {
