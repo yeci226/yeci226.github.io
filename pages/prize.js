@@ -9,9 +9,14 @@ export default function Prize() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    "/prize/prize1.jpg",
-    "/prize/prize2.jpg",
-    "/prize/prize3.jpg",
+    "/prize/2.png",
+    "/prize/3.png",
+    "/prize/4.png",
+    "/prize/5.png",
+    "/prize/6.png",
+    "/prize/7.png",
+    "/prize/8.png",
+    "/prize/9.png",
   ];
 
   useEffect(() => {
@@ -95,8 +100,8 @@ export default function Prize() {
           </div>
 
           <div className={styles.staticImagesContainer}>
-            <img src="/prize/prize4.jpg" />
-            <img src="/prize/prize5.jpg" />
+            <img src="/prize/0.png" />
+            <img src="/prize/1.png" />
           </div>
         </div>
       </main>
