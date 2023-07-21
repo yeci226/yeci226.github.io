@@ -69,7 +69,9 @@ export default function Rule() {
         </div>
         <br />
         <br />
-        <img src="https://media.discordapp.net/attachments/1127985326267314196/1131882888602865764/f4c2734336b3c876.png?width=628&height=671" />
+        <div className={styles.staticImagesContainer}>
+          <img src="https://media.discordapp.net/attachments/1127985326267314196/1131882888602865764/f4c2734336b3c876.png?width=628&height=671" />
+        </div>
       </main>
     </div>
   );
