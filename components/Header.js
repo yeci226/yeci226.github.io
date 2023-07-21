@@ -34,7 +34,7 @@ export default function Header() {
                 <a href="/about">關於AET</a>
               </li>
               <li>
-                <a href="/rule">賽制介紹</a>
+                <a href="/rule">賽事說明</a>
               </li>
               <li>
                 <a href="/live">比賽直播</a>

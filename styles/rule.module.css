@@ -36,16 +36,30 @@
   z-index: -1;
 }
   
-.title {
+.title1 {
     font-size: 50px;
     font-weight: bold;
     font-family: 'Noto Sans TC', sans-serif;
 }
+
+.text1,.text2, .title2 {
+  margin-bottom: 1em;
+  line-height: 1.5;
+  font-family: 'Noto Sans TC', sans-serif;
+}
   
-.text {
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-family: 'Noto Sans TC', sans-serif;
+.text1, .text2 {
+  font-size: 20px;
+}
+
+.text2::before {
+  content: "• ";
+  font-weight: bold;
+}
+
+.title2 {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .buttonContainer {
