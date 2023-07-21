@@ -21,7 +21,7 @@ export default function About() {
       const updatedStaffData = await Promise.all(
         staffData.map(async (staff) => {
           const discordResponse = await fetch(
-            `/api/getUserAvatar?id=${staff.avatar}`
+            `http://aetbrawl.cc/api/getUserAvatar?id=${staff.avatar}`
           );
           const discordData = await discordResponse.json();
           return {
@@ -35,10 +35,6 @@ export default function About() {
     };
 
     fetchData();
-
-    const intervalId = setInterval(fetchData, 5 * 60 * 1000);
-
-    return () => clearInterval(intervalId);
   }, []);
 
   return (

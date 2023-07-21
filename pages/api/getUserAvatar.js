@@ -5,7 +5,7 @@ export default async (req, res) => {
 
   const response = await fetch(`https://discord.com/api/users/${id}`, {
     headers: {
-      Authorization: `Bot MTAwNjc0NzM3MDA2MDUzMzc2MA.GMM1CP.-xTq2tMoSx2E9iaPgA6eUv-Be5mb57hxrPC4Oo`,
+      Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
     },
   });
 
