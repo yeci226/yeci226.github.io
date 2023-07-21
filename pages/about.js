@@ -18,20 +18,7 @@ export default function About() {
       const response = await fetch("/crew.json");
       const staffData = await response.json();
 
-      const updatedStaffData = await Promise.all(
-        staffData.map(async (staff) => {
-          const discordResponse = await fetch(
-            `/api/getUserAvatar?id=${staff.avatar}`
-          );
-          const discordData = await discordResponse.json();
-          return {
-            ...staff,
-            avatar: `https://cdn.discordapp.com/avatars/${staff.avatar}/${discordData.avatar}`,
-          };
-        })
-      );
-
-      setStaffMembers(updatedStaffData);
+      setStaffMembers(staffData);
     };
 
     fetchData();
