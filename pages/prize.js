@@ -52,16 +52,23 @@ export default function Prize() {
         />
       </Head>
 
-      <div className={styles.background_video}>
-        <video
-          autoPlay
-          loop
-          muted
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        >
-          <source src="/bg.webm" type="video/webm" />
-        </video>
-      </div>
+      {isMobile ? (
+        <div
+          className={styles.background_image}
+          style={{ backgroundImage: "url(/bg_img.png)" }}
+        />
+      ) : (
+        <div className={styles.background_video}>
+          <video
+            autoPlay
+            loop
+            muted
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          >
+            <source src="/bg.webm" type="video/webm" />
+          </video>
+        </div>
+      )}
 
       <main>
         <Header />
