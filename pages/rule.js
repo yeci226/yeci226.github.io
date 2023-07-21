@@ -55,12 +55,12 @@ export default function Rule() {
         </p>
         <p className={styles.title2}>比賽日期與時間</p>
         <p className={styles.text2}>
-          A區資格賽 8月12日（六）14:30~17:00、19:30~22:00
+          A區資格賽：8月12日（六）14:30~17:00、19:30~22:00
         </p>
         <p className={styles.text2}>
-          B區資格賽 8月13日（日）14:30~17:00、19:30~22:00
+          B區資格賽：8月13日（日）14:30~17:00、19:30~22:00
         </p>
-        <p className={styles.text2}>決賽日期：8月19日（六）18:30 起</p>
+        <p className={styles.text2}>決賽：8月19日（六）18:30 起</p>
 
         <div className={styles.buttonContainer}>
           <button onClick={RuleClick} className={styles.button}>
