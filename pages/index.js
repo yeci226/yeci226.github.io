@@ -42,6 +42,8 @@ export default function Home() {
             height: "100%",
             zIndex: -1,
             backgroundImage: "url(/bg_img.png)",
+            backgroundSize: "cover",
+            objectFit: "cover",
           }}
         />
       ) : (

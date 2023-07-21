@@ -97,6 +97,9 @@
   padding: 10px 10px;
   color: #9db2bf;
   text-decoration: none;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(10px);
 }
 
 .discord_button {
