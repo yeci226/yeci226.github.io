@@ -112,3 +112,9 @@
   border-radius: 10px;
   overflow: hidden;
 }
+
+@media (max-width: 600px) {
+  .container {
+    margin-top: 12.5vh;
+  }
+}

@@ -90,3 +90,9 @@
   color: #9DB2BF;
   transform: scale(1.25);
 }
+
+@media (max-width: 600px) {
+  .container {
+    margin-top: 12.5vh;
+  }
+}

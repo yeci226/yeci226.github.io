@@ -77,3 +77,9 @@
     border-radius: 50%;
     object-fit: cover;
 }
+
+@media (max-width: 600px) {
+  .container {
+    margin-top: 12.5vh;
+  }
+}
