@@ -15,16 +15,30 @@ export default function About() {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch("/crew.json");
-        const data = await response.json();
-        setStaffMembers(data);
-      } catch (error) {
-        console.error("Error fetching staff data:", error);
-      }
+      const response = await fetch("/crew.json");
+      const staffData = await response.json();
+
+      const updatedStaffData = await Promise.all(
+        staffData.map(async (staff) => {
+          const discordResponse = await fetch(
+            `/api/getUserAvatar?id=${staff.avatar}`
+          );
+          const discordData = await discordResponse.json();
+          return {
+            ...staff,
+            avatar: `https://cdn.discordapp.com/avatars/${staff.avatar}/${discordData.avatar}`,
+          };
+        })
+      );
+
+      setStaffMembers(updatedStaffData);
     };
 
     fetchData();
+
+    const intervalId = setInterval(fetchData, 5 * 60 * 1000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (

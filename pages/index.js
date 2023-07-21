@@ -61,7 +61,12 @@ export default function Home() {
 
       <main>
         <div className={styles.logoContainer}>
-          <img src="/AET2023-1.png" alt="Logo" className={styles.logo} />
+          <img
+            src="/AET2023-1.png"
+            alt="Logo"
+            draggable="false"
+            className={styles.logo}
+          />
         </div>
 
         <div className={styles.buttonContainer}>
