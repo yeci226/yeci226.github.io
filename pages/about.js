@@ -21,7 +21,7 @@ export default function About() {
       const updatedStaffData = await Promise.all(
         staffData.map(async (staff) => {
           const discordResponse = await fetch(
-            `https://aetbrawl.cc/api/getUserAvatar?id=${staff.avatar}`
+            `/api/getUserAvatar?id=${staff.avatar}`
           );
           const discordData = await discordResponse.json();
           return {
