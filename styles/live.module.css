@@ -117,4 +117,11 @@
   .container {
     margin-top: 12.5vh;
   }
+  
+  .video_container_one,
+  .video_container_two,
+  .video_container_four {
+    width: 100%;
+    height: auto;
+  }
 }
