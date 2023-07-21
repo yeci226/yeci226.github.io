@@ -36,18 +36,11 @@ export default function Home() {
 
       {isMobile ? (
         <div
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            zIndex: -1,
-            backgroundImage: "url(/bg_img.png)",
-            backgroundSize: "cover",
-            objectFit: "cover",
-          }}
+          className={styles.background_image}
+          style={{ backgroundImage: "url(/bg_img.png)" }}
         />
       ) : (
-        <div className={styles.video}>
+        <div className={styles.background_video}>
           <video
             autoPlay
             loop
