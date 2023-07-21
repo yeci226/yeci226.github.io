@@ -43,7 +43,7 @@
 
 .mainContainer {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .staticImagesContainer {
@@ -70,6 +70,7 @@
   width: 80%;
   height: 540px;
   margin: 0 auto;
+  margin-bottom: 20px;
   overflow: hidden;
   position: relative;
 }
@@ -133,4 +134,10 @@
 
 .activeIndicator {
   background-color: #555;
+}
+
+@media (min-width: 600px) {
+  .mainContainer {
+    flex-direction: row;
+  }
 }
