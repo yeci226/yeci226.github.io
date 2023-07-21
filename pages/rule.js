@@ -67,6 +67,9 @@ export default function Rule() {
             完整賽規 <i class="fa fa-external-link" />
           </button>
         </div>
+        <br />
+        <br />
+        <img src="https://media.discordapp.net/attachments/1127985326267314196/1131882888602865764/f4c2734336b3c876.png?width=628&height=671" />
       </main>
     </div>
   );
