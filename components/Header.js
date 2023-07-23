@@ -162,5 +162,5 @@ export default function Header() {
       `}</style>
       
       
-<div/> </div>
+</div> 
 )}
