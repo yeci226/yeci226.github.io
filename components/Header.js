@@ -105,7 +105,7 @@ export default function Header() {
           bottom: 0;
           left: 0;
           right: 100%;
-          border-bottom: 3px solid #7289da;
+          border-bottom: 3px solid #47ee9e;
           transition: right 0.2s;
         }
         .link-wrapper a:hover::after {
