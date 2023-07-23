@@ -9,16 +9,28 @@
   align-items: center;
 }
 
-.video {
-  position: fixed;
+.background_video {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
   z-index: -1;
-  object-fit: cover;
+}
+
+.background_image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  z-index: -1;
 }
 
 .content {
@@ -75,14 +87,3 @@
   color: #47ee9e;
   transform: scale(1.5);
 }
-
-
-
-.discord_button:hover {
-  color: #56abf9;
-  transform: scale(1.01);
-}
-
-
-
-

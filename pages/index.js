@@ -36,16 +36,11 @@ export default function Home() {
 
       {isMobile ? (
         <div
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            zIndex: -1,
-            backgroundImage: "url(/bg_img.png)",
-          }}
+          className={styles.background_image}
+          style={{ backgroundImage: "url(/bg_img.png)" }}
         />
       ) : (
-        <div className={styles.video}>
+        <div className={styles.background_video}>
           <video
             autoPlay
             loop
@@ -61,7 +56,12 @@ export default function Home() {
 
       <main>
         <div className={styles.logoContainer}>
-          <img src="/AET2023-1.png" alt="Logo" className={styles.logo} />
+          <img
+            src="/AET2023-1.png"
+            alt="Logo"
+            draggable="false"
+            className={styles.logo}
+          />
         </div>
 
         <div className={styles.buttonContainer}>

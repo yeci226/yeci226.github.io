@@ -3,41 +3,64 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/nav.module.css";
 import { DiscordClick } from "../js/cookiesocute";
+import { isMobileDevice } from "../js/cookiesocute";
 
 export default function Header() {
   const router = useRouter();
   const [isOnHomepage, setIsOnHomepage] = useState(true);
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [logoWidth, setLogoWidth] = useState(250);
+  const [logoHeight, setLogoHeight] = useState(110);
 
   useEffect(() => {
+    setIsMobile(isMobileDevice());
     setIsOnHomepage(router.pathname === "/");
-  }, [router.pathname]);
 
+    if (isMobileDevice()) {
+      setLogoWidth(150);
+      setLogoHeight(66);
+    } else {
+      setLogoWidth(250);
+      setLogoHeight(110);
+    }
+  }, [router.pathname]);
   return (
-    <div className="header">
-      <div className={`logo-container ${isOnHomepage ? "hidden" : ""}`}>
-        <div className="logo">
+    <div className={styles.header}>
+      <div
+        className={`${styles.logoContainer} ${
+          isOnHomepage ? styles.hidden : ""
+        }`}
+      >
+        <div className={styles.logo}>
           <a href="/">
-            <Image src="/AET2023-1.png" width={250} height={110} />
+            <Image src="/AET2023-1.png" width={logoWidth} height={logoHeight} />
           </a>
         </div>
       </div>
-      <nav className="menu">
-        <div className="link-wrapper">
+      <nav className={styles.menu}>
+        <div className={styles.linkWrapper}>
           <div
-            className="link dropdown-link"
+            className={`${styles.link} ${styles.dropdownLink}`}
             onClick={() => setDropdownVisible(!dropdownVisible)}
           >
             <a>賽事資訊</a>
-            <ul className={`dropdown ${dropdownVisible ? "visible" : ""}`}>
+            <ul
+              className={`${styles.dropdown} ${
+                dropdownVisible ? styles.visible : ""
+              }`}
+            >
               <li>
                 <a href="/about">關於AET</a>
               </li>
               <li>
-                <a href="/rule">賽制介紹</a>
+                <a href="/rule">賽事說明</a>
               </li>
               <li>
                 <a href="/live">比賽直播</a>
+              </li>
+              <li>
+                <a href="/prize">獎品</a>
               </li>
             </ul>
           </div>
@@ -46,6 +69,7 @@ export default function Header() {
           </button>
         </div>
       </nav>
+
 
       <style jsx>{`
         .header {
@@ -135,6 +159,8 @@ export default function Header() {
           text-decoration: none;
         }
       `}</style>
-    </div>
-  );
-}
+      
+<div/>
+
+  
+

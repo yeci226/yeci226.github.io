@@ -15,13 +15,10 @@ export default function About() {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch("/crew.json");
-        const data = await response.json();
-        setStaffMembers(data);
-      } catch (error) {
-        console.error("Error fetching staff data:", error);
-      }
+      const response = await fetch("/crew.json");
+      const staffData = await response.json();
+
+      setStaffMembers(staffData);
     };
 
     fetchData();

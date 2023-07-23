@@ -5,17 +5,14 @@ import VideoGrid from "../components/VideoGrid";
 import { useEffect, useState } from "react";
 import { isMobileDevice } from "../js/cookiesocute";
 
-export default function About() {
+export default function Live() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMobile(isMobileDevice());
   }, []);
 
-  const videoGroups = [
-    [{ id: "VC6zQ3jP7JY", title: "獎品說明" }],
-    [{ id: "VU2TBiHB_u8", title: "握襙 符玄" }, { id: "VIDEO_ID_5" }],
-  ];
+  const videoGroups = [[{ id: "VC6zQ3jP7JY", title: "獎品說明" }]];
 
   return (
     <div className={styles.container}>

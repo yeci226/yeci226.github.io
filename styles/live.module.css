@@ -26,12 +26,13 @@
 }
 
 .background_image {
-  user-select: none; 
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
   z-index: -1;
 }
@@ -110,4 +111,17 @@
   margin: 1em;
   border-radius: 10px;
   overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin-top: 17.5vh;
+  }
+  
+  .video_container_one,
+  .video_container_two,
+  .video_container_four {
+    width: 100%;
+    height: auto;
+  }
 }

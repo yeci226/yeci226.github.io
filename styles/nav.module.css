@@ -1,14 +1,155 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  z-index: 1000;
+  font-size: 24px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-top: 15px;
+  transition: transform 0.5s;
+}
+
+.logoContainer.hidden {
+  transform: translateX(-150%);
+}
+
+.logo {
+  user-select: none;
+  cursor: pointer;
+}
+
+.text {
+  user-select: none;
+  margin-left: 10px;
+  font-size: 24px;
+  color: #fff;
+}
+
+.menu {
+  display: flex;
+}
+
+.linkWrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.linkWrapper a {
+  white-space: nowrap;
+  user-select: none;
+  text-decoration: none;
+  margin-right: 30px;
+  padding: 5px 10px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+.linkWrapper a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  border-bottom: 3px solid #7289da;
+  transition: right 0.2s;
+}
+
+.linkWrapper a:hover::after {
+  right: 0;
+}
+
+.dropdownLink {
+  position: relative;
+}
+
+.dropdown {
+  white-space: nowrap;
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  list-style-type: none;
+  padding: 0 0;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.dropdown.visible {
+  max-height: 200px;
+  padding: 15px 0;
+}
+
+.dropdown li a {
+  text-align: center;
+  white-space: nowrap;
+  display: block;
+  padding: 10px 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.175); 
+  backdrop-filter: blur(10px);
+}
+
 .discord_button {
-    user-select: none; 
-    padding: 12px 24px;
-    font-size: 18px;
-    background: none;
-    color: #fff;
-    border-color: #4ca3f4;
-    border-radius: 12px;
-    border-width: 3px;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-    margin-right: 20px;
+  user-select: none; 
+  padding: 12px 24px;
+  font-size: 18px;
+  background: none;
+  color: #fff;
+  border-color: #4ca3f4;
+  border-radius: 12px;
+  border-width: 3px;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  margin-right: 20px;
+}
+
+.discord_button:hover {
+  color: #56abf9;
+  transform: scale(1.01);
+}
+
+@media (max-width: 900px) {
+  .header {
+    font-size: 20px;
   }
+  .discord_button {
+    font-size: 18px;
+  }
+  .text {
+    font-size: 20px;
+  }
+  .dropdown li a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    font-size: 16px;
+    justify-content: flex-start;
+  }
+  .discord_button {
+    font-size: 12px;
+    margin-left: -20px;
+  }
+  .text {
+    font-size: 16px;
+  }
+  .dropdown li a {
+    font-size: 16px;
+  }
+}
