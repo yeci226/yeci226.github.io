@@ -17,6 +17,13 @@ export default function Rule() {
         <title>賽事說明</title>
         <link rel="icon" href="/icon.ico" />
         <meta
+          name="description"
+          content="參加AET2023的隊伍們，將會先隨機分在A、B二區，參加「資格賽」階段。透過三盤二勝（每盤三局二勝）決定出每區的前4強隊伍。
+
+          再由一共8支脫穎而出的隊伍參加「決賽」，透過五盤三勝制（每盤三局二勝）的考驗，讓AET2023的冠軍隊伍誕生！"
+        />
+        <meta property="og:image" content="/logoNText.png" />
+        <meta
           name="viewport"
           content="width=device-width,height=device-height,initial-scale=1.0"
         />
