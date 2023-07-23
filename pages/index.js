@@ -69,7 +69,7 @@ export default function Home() {
             立即報名
           </button>
           <button onClick={ChangeClick} className={styles.button_fix}>
-            修改資料
+            修改報名資料
           </button>
         </div>
       </main>
