@@ -25,6 +25,7 @@ export default function Header() {
       setLogoHeight(110);
     }
   }, [router.pathname]);
+  
   return (
     <div className={styles.header}>
       <div
@@ -160,7 +161,6 @@ export default function Header() {
         }
       `}</style>
       
-<div/>
-
-  
-
+      
+<div/> </div>
+)}
