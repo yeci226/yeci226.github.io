@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
-import { SignUpClick, isMobileDevice } from "../js/cookiesocute";
+import { SignUpClick, isMobileDevice, ChangeClick } from "../js/cookiesocute";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -67,6 +67,9 @@ export default function Home() {
         <div className={styles.buttonContainer}>
           <button onClick={SignUpClick} className={styles.button}>
             立即報名
+          </button>
+          <button onClick={ChangeClick} className={styles.button_fix}>
+            修改資料
           </button>
         </div>
       </main>

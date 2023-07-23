@@ -76,8 +76,8 @@ export default function About() {
                   className={styles.avatar}
                   draggable="false"
                 />
-                <h3>{staff.name}</h3>
-                <p>{staff.job}</p>
+                <h3 className={styles.staffname}>{staff.name}</h3>
+                <p className={styles.staffjob}>{staff.job}</p>
               </div>
             ))}
           </div>

@@ -53,6 +53,8 @@ export default function Rule() {
         <p className={styles.text1}>
           再由一共8支脫穎而出的隊伍參加「決賽」，透過五盤三勝制（每盤三局二勝）的考驗，讓AET2023的冠軍隊伍誕生！
         </p>
+        <p className={styles.title2}>選手名單</p>
+        <iframe className={styles.frame} src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRtZr1zXG_tAX580N7u0DS4n85QGM7q8RXSnc97i9-kendxYCnBW38AbRY5DAL3TrEFzQUnoxlsarC2/pubhtml?widget=true&amp;headers=false"/>
         <p className={styles.title2}>比賽日期與時間</p>
         <p className={styles.text2}>
           A區資格賽：8月12日（六）14:30~17:00、19:30~22:00

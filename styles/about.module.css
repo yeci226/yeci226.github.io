@@ -66,6 +66,16 @@
     font-family: 'Noto Sans TC', sans-serif;
     margin-top: 5vh;
 }
+
+.staffname {
+  color: rgb(3, 3, 3);
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.staffjob {
+    color: rgb(94, 94, 94);
+    font-family: 'Noto Sans TC', sans-serif;
+}
   
 .staffMember {
     text-align: center;

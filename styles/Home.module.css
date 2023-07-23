@@ -83,7 +83,28 @@
   outline: none;
 }
 
+.button_fix {
+  user-select: none; 
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  background: none;
+  color: #fff;
+  border-color: #b647ee;
+  border-radius: 12px;
+  border-width: 3px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  margin-left: 2vw;
+}
+
 .button:hover {
-  color: #47ee9e;
-  transform: scale(1.5);
+  transform: scale(1.3);
+}
+
+.button_fix:hover {
+  transform: scale(1.3);
 }
