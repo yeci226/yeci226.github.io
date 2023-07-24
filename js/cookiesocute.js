@@ -21,3 +21,10 @@ export const RuleClick = () => {
     "_blank"
   );
 };
+
+export const RuleClick2 = () => {
+  window.open(
+    "https://docs.google.com/spreadsheets/d/19DlVYlVmyQuIJrK100kHSFWxeagWWe_iUiHRhEc_ebs",
+    "_blank"
+  );
+};
