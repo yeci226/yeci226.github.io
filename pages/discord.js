@@ -3,7 +3,7 @@ import Router from "next/router";
 
 function DiscordRedirect() {
   useEffect(() => {
-    Router.replace("https://discord.gg/qaWtVXq82d");
+    Router.replace("https://discord.gg/ffdnFqBsPV");
   }, []);
 
   return null;
@@ -11,7 +11,7 @@ function DiscordRedirect() {
 
 DiscordRedirect.getInitialProps = async () => ({
   redirect: {
-    destination: "https://discord.gg/qaWtVXq82d",
+    destination: "https://discord.gg/ffdnFqBsPV",
     permanent: false,
   },
 });

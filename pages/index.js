@@ -65,10 +65,7 @@ export default function Home() {
         </div>
 
         <div className={styles.buttonContainer}>
-          <button onClick={SignUpClick} className={styles.button}>
-            立即報名
-          </button>
-          <button onClick={ChangeClick} className={styles.button_fix}>
+          <button onClick={ChangeClick} className={styles.button}>
             修改報名資料
           </button>
         </div>
