@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
+  max-height: 100vh;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,26 +33,18 @@
   z-index: -1;
 }
 
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #fff;
-}
-
 .logoContainer {
-  display: flex;
-  justify-content: center;
+  position: fixed;
+  top: 30%;
   align-items: center;
-  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo {
-  user-select: none; 
+  user-select: none;
   max-width: 100%;
-  max-height: 100%;
+  max-height: 25vh;
   transition: transform 0.5s ease;
 }
 
@@ -61,8 +53,11 @@
 }
 
 .buttonContainer {
-  display: flex;
-  justify-content: center;
+  position: fixed;
+  top: 55%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 50px; /* 調整按鈕和 Logo 的距離 */
 }
 
@@ -73,7 +68,7 @@
   font-weight: bold;
   background: none;
   color: #fff;
-  border-color: #d847ee;
+  border-color: #ea7ba4;
   border-radius: 12px;
   border-width: 3px;
   cursor: pointer;
@@ -81,30 +76,9 @@
   position: relative;
   overflow: hidden;
   outline: none;
-}
-
-.button_fix {
-  user-select: none; 
-  padding: 12px 24px;
-  font-size: 18px;
-  font-weight: bold;
-  background: none;
-  color: #fff;
-  border-color: #b647ee;
-  border-radius: 12px;
-  border-width: 3px;
-  cursor: pointer;
-  transition: transform 0.5s ease;
-  position: relative;
-  overflow: hidden;
-  outline: none;
-  margin-left: 2vw;
 }
 
 .button:hover {
-  transform: scale(1.3);
-}
-
-.button_fix:hover {
-  transform: scale(1.3);
+  transform: scale(1.15);
+  background: #ea7ba4;
 }

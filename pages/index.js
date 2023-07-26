@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
-import { SignUpClick, isMobileDevice, ChangeClick } from "../js/cookiesocute";
+import { isMobileDevice, ChangeClick } from "../js/cookiesocute";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>AET 2023</title>
+        <title>AET 2023 | 主頁</title>
         <link rel="icon" href="/icon.ico" />
         <meta
           name="description"
@@ -54,7 +54,7 @@ export default function Home() {
 
       <Header />
 
-      <main>
+
         <div className={styles.logoContainer}>
           <img
             src="/AET2023-1.png"
@@ -69,9 +69,7 @@ export default function Home() {
             修改報名資料
           </button>
         </div>
-      </main>
 
-      <footer></footer>
     </div>
   );
 }
