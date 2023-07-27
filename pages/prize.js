@@ -31,17 +31,19 @@ export default function Prize() {
 
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const fetchData = async () => {
       await new Promise((resolve) => setTimeout(resolve, 2000));
       setLoading(false);
     };
     fetchData();
   }, []);
+  
+  {loading && <Loading />}*/
 
   return (
     <div className={styles.container}>
-    {loading && <Loading />}
+    
       <Head>
         <title>AET 2023 | 獎品</title>
         <link rel="icon" href="/icon.ico" />
