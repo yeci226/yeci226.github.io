@@ -2,30 +2,30 @@
     {
       "id": 1,
       "name": "餅乾",
-      "job": "主辦",
+      "job": "主辦 / 網站製作 / 美編設計",
       "avatar": "https://cdn.discordapp.com/avatars/370537724362620930/e5525339b75ab35ff7727d0a9028b555"
     },
     {
       "id": 2,
       "name": "派克 Mr.Pike",
-      "job": "主辦",
-      "avatar": "https://cdn.discordapp.com/avatars/376379059548192768/14ba436e42f5f169fd6f6c76a658b890"
+      "job": "主辦 / 打雜",
+      "avatar": "https://cdn.discordapp.com/attachments/868552033781813319/1134046811062014002/d455bbbb1ec1fdf6.png"
     },
     {
       "id": 3,
-      "name": "AJ",
+      "name": "AJ 牙籤",
       "job": "大南瓜擔當",
-      "avatar": "https://cdn.discordapp.com/avatars/718672740785193020/fd99143b30adb36a8ae079fd67376a56"
+      "avatar": "https://cdn.discordapp.com/attachments/868552033781813319/1134046987998744637/IMG_0560.jpg"
     },
     {
       "id": 4,
       "name": "Yeci",
       "job": "網站製作",
-      "avatar": "https://cdn.discordapp.com/avatars/283946584461410305/a_2bf0a8b5b1e6a095fd3d9126f67df269"
+      "avatar": "https://cdn.discordapp.com/avatars/283946584461410305/a_2bf0a8b5b1e6a095fd3d9126f67df269.gif"
     },
     {
       "id": 5,
-      "name": "阿波",
+      "name": "阿波 Po",
       "job": "賽務人員",
       "avatar": "https://cdn.discordapp.com/avatars/834594092432228401/dc10f86856c2dd1c26bca8a483633efc"
     },
@@ -58,7 +58,7 @@
       "id": 10,
       "name": "四月",
       "job": "賽務人員",
-      "avatar": "https://cdn.discordapp.com/avatars/827806649929957397/7679c454457169daf3d7c85dc5783f06"
+      "avatar": "https://cdn.discordapp.com/attachments/868552033781813319/1134047448998879262/get_thumbnail_1.jpg"
     },
     {
       "id": 11,
@@ -70,13 +70,13 @@
       "id": 12,
       "name": "Mr.Pillow 枕頭先生",
       "job": "美編設計",
-      "avatar": "https://cdn.discordapp.com/avatars/743856200743125093/9d64b4f53834d0bef7385e8b76a4f0e8"
+      "avatar": "https://cdn.discordapp.com/attachments/1086544869033521174/1134047322813251604/9d64b4f53834d0bef7385e8b76a4f0e8.png"
     },
     {
       "id": 13,
       "name": "Moko 墨可",
       "job": "美編設計",
-      "avatar": "https://cdn.discordapp.com/avatars/774977328224141332/28e80afbb8cc5e61c623009ab75056e8"
+      "avatar": "https://cdn.discordapp.com/attachments/1086544869033521174/1134047174418776124/14b8c1d03fb2d307ad6f7f70ade4d46c.png"
     },
     {
       "id": 14,
