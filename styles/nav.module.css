@@ -108,18 +108,28 @@
   font-size: 18px;
   background: none;
   color: #fff;
-  border-color: #4ca3f4;
+  border-color: #278ae7;
   border-radius: 12px;
   border-width: 3px;
   cursor: pointer;
   overflow: hidden;
   outline: none;
-  margin-right: 20px;
+  margin-right: 3vw;
+  transition: transform 0.5s ease;
+}
+
+.discord_logo {
+  position: relative;
+  height: 20px;
+  width: auto;
+  margin-right: 5px;
+  top: 50%;
 }
 
 .discord_button:hover {
-  color: #56abf9;
-  transform: scale(1.01);
+  background: #278ae7;
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
 @media (max-width: 900px) {
