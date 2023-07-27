@@ -29,7 +29,7 @@ export default function Prize() {
     );
   };
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   /*useEffect(() => {
     const fetchData = async () => {

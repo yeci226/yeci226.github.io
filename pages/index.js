@@ -60,17 +60,3 @@ export default function Home() {
     
   );
 }
-
-export async function getServerSideProps() {
-  // Simulate server-side data fetching delay
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
-  // Fetch your data here (replace with your actual data fetching logic)
-  const data = { message: 'Hello from the server!' };
-
-  return {
-    props: {
-      data,
-    },
-  };
-}
