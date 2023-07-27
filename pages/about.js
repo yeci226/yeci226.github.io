@@ -1,10 +1,21 @@
 import Head from "next/head";
 import styles from "../styles/about.module.css";
 import Header from "../components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function About() {
   const [staffMembers, setStaffMembers] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("/crew.json");
+      const staffData = await response.json();
+
+      setStaffMembers(staffData);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className={styles.container}>
