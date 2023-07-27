@@ -2,10 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import Head from "next/head";
 import styles from "../styles/prize.module.css";
 import Header from "../components/Header";
-import { isMobileDevice } from "../js/cookiesocute";
+import probar from "nextjs-progressbar"
 
 export default function Prize() {
-  const [isMobile, setIsMobile] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
@@ -19,14 +18,6 @@ export default function Prize() {
     "/prize/9.png",
   ];
 
-  useEffect(() => {
-    setIsMobile(isMobileDevice());
-    const interval = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 10000);
-    return () => clearInterval(interval);
-  }, []);
-
   const handleNext = () => {
     setCurrentImage((prevImage) => (prevImage + 1) % images.length);
   };
@@ -39,6 +30,7 @@ export default function Prize() {
 
   return (
     <div className={styles.container}>
+      <probar color="#ef548e"/>
       <Head>
         <title>AET 2023 | 獎品</title>
         <link rel="icon" href="/icon.ico" />
@@ -52,25 +44,20 @@ export default function Prize() {
         />
       </Head>
 
-      {isMobile ? (
-        <div
-          className={styles.background_image}
-          style={{ backgroundImage: "url(/bg_img.png)" }}
-        />
-      ) : (
-        <div className={styles.background_video}>
+      <div className={styles.background_video}>
           <video
             autoPlay
             loop
             muted
+            playsInline
+            src="/bg.mp4"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           >
-            <source src="/bg.webm" type="video/webm" />
           </video>
         </div>
-      )}
 
       <main>
+
         <Header />
         <h1 className={styles.title}>獎品</h1>
 

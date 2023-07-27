@@ -1,28 +1,10 @@
 import Head from "next/head";
 import styles from "../styles/about.module.css";
 import Header from "../components/Header";
-import { useEffect, useState } from "react";
-import { isMobileDevice } from "../js/cookiesocute";
+import { useState } from "react";
 
 export default function About() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(isMobileDevice());
-  }, []);
-
   const [staffMembers, setStaffMembers] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("/crew.json");
-      const staffData = await response.json();
-
-      setStaffMembers(staffData);
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <div className={styles.container}>
@@ -35,23 +17,17 @@ export default function About() {
         />
       </Head>
 
-      {isMobile ? (
-        <div
-          className={styles.background_image}
-          style={{ backgroundImage: "url(/bg_img.png)" }}
-        />
-      ) : (
-        <div className={styles.background_video}>
+      <div className={styles.background_video}>
           <video
             autoPlay
             loop
             muted
+            playsInline
+            src="/bg.mp4"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           >
-            <source src="/bg.webm" type="video/webm" />
           </video>
         </div>
-      )}
 
       <main>
         <Header />

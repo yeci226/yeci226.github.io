@@ -1,16 +1,9 @@
 import Head from "next/head";
 import styles from "../styles/rule.module.css";
 import Header from "../components/Header";
-import { useEffect, useState } from "react";
-import { isMobileDevice, RuleClick,  RuleClick2 } from "../js/cookiesocute";
+import { RuleClick,  RuleClick2 } from "../js/cookiesocute";
 
 export default function Rule() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(isMobileDevice());
-  }, []);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -33,23 +26,17 @@ export default function Rule() {
         />
       </Head>
 
-      {isMobile ? (
-        <div
-          className={styles.background_image}
-          style={{ backgroundImage: "url(/bg_img.png)" }}
-        />
-      ) : (
-        <div className={styles.background_video}>
+      <div className={styles.background_video}>
           <video
             autoPlay
             loop
             muted
+            playsInline
+            src="/bg.mp4"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           >
-            <source src="/bg.webm" type="video/webm" />
           </video>
         </div>
-      )}
 
       <main>
         <Header />
