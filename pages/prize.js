@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import Head from "next/head";
 import styles from "../styles/prize.module.css";
 import Header from "../components/Header";
-import probar from "nextjs-progressbar"
+import Loading from '../components/Loading';
+
 
 export default function Prize() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -28,9 +29,19 @@ export default function Prize() {
     );
   };
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className={styles.container}>
-      <probar color="#ef548e"/>
+    {loading && <Loading />}
       <Head>
         <title>AET 2023 | 獎品</title>
         <link rel="icon" href="/icon.ico" />

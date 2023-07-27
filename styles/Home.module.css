@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 
-
 .container {
   height: 100%;
   width: 100%;
@@ -27,7 +26,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   position: fixed;
   z-index: 1000;
 }
@@ -35,7 +34,32 @@
 .preloader_logo {
   display: flex;
   justify-content: center;
-  margin-top: 400px;
+  margin-top: 40vh;
+}
+
+.spinner {
+  /* Spinner size and color */
+  width: 5rem;
+  height: 5rem;
+  border-top-color: #ef548e;
+  border-left-color: #ef548e;
+
+  /* Additional spinner styles */
+  animation: spinner 400ms linear infinite;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 50%;  
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Animation styles */
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .logoContainer {

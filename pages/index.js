@@ -2,14 +2,11 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import { ChangeClick } from "../js/cookiesocute";
-import probar from "nextjs-progressbar"
-
 
 export default function Home() {
 
   return (
     <div className={styles.container}>
-      <probar color="#ef548e"/>
       <Head>
         <title>AET 2023 | 主頁</title>
         <link rel="icon" href="/icon.ico" />
@@ -62,4 +59,18 @@ export default function Home() {
     </div>
     
   );
+}
+
+export async function getServerSideProps() {
+  // Simulate server-side data fetching delay
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  // Fetch your data here (replace with your actual data fetching logic)
+  const data = { message: 'Hello from the server!' };
+
+  return {
+    props: {
+      data,
+    },
+  };
 }
