@@ -27,7 +27,7 @@ export default function About() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>關於 AET</title>
+        <title>AET 2023 | 關於 AET</title>
         <link rel="icon" href="/icon.ico" />
         <meta
           name="viewport"

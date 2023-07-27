@@ -40,7 +40,7 @@ export default function Prize() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>獎品</title>
+        <title>AET 2023 | 獎品</title>
         <link rel="icon" href="/icon.ico" />
         <meta
           name="viewport"

@@ -17,7 +17,7 @@ export default function Live() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>比賽直播</title>
+        <title>AET 2023 | 比賽直播</title>
         <link rel="icon" href="/icon.ico" />
         <meta
           name="viewport"

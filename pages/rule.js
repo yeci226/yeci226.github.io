@@ -14,7 +14,7 @@ export default function Rule() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>賽事說明</title>
+        <title>AET 2023 | 賽事說明</title>
         <link rel="icon" href="/icon.ico" />
         <meta
           name="description"
