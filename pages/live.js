@@ -33,6 +33,7 @@ export default function Live() {
       <main>
         <Header />
         <h1 className={styles.title}>直播</h1>
+        
         {videoGroups.map((videos, index) => (
           <VideoGrid key={index} videos={videos} />
         ))}
