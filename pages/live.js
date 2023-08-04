@@ -4,8 +4,7 @@ import Header from "../components/Header";
 import VideoGrid from "../components/VideoGrid";
 
 export default function Live() {
-
-  const videoGroups = [[{ id: "VC6zQ3jP7JY", title: "獎品說明" }]];
+  const videoGroups = [[{ id: "839mmf-5800", title: "資格賽抽籤" }]];
 
   return (
     <div className={styles.container}>
@@ -19,21 +18,20 @@ export default function Live() {
       </Head>
 
       <div className={styles.background_video}>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            src="/bg.mp4"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          >
-          </video>
-        </div>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          src="/bg.mp4"
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        ></video>
+      </div>
 
       <main>
         <Header />
         <h1 className={styles.title}>直播</h1>
-        
+
         {videoGroups.map((videos, index) => (
           <VideoGrid key={index} videos={videos} />
         ))}
