@@ -4,7 +4,10 @@ import Header from "../components/Header";
 import VideoGrid from "../components/VideoGrid";
 
 export default function Live() {
-  const videoGroups = [[{ id: "839mmf-5800", title: "資格賽抽籤" }]];
+  const videoGroups = [
+    [{ id: "839mmf-5800", title: "資格賽抽籤" }],
+    [{ id: "VC6zQ3jP7JY", title: "獎品說明" }],
+  ];
 
   return (
     <div className={styles.container}>
