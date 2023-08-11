@@ -11,6 +11,10 @@ export const ChangeClick = () => {
   window.open("https://forms.gle/dfd3dVXyTGtj3zLU7", "_blank");
 };
 
+export const LiveClick = () => {
+  window.open("/live", "_blank");
+};
+
 export const DiscordClick = () => {
   window.open("https://discord.gg/qaWtVXq82d", "_blank");
 };

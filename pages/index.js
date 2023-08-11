@@ -1,10 +1,9 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
-import { ChangeClick } from "../js/cookiesocute";
+import { LiveClick, RuleClick2 } from "../js/cookiesocute";
 
 export default function Home() {
-
   return (
     <div className={styles.container}>
       <Head>
@@ -27,36 +26,36 @@ export default function Home() {
         </noscript>
       </Head>
 
-        <div className={styles.background_video}>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            src="/bg.mp4"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          >
-          </video>
-        </div>
-    
+      <div className={styles.background_video}>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          src="/bg.mp4"
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        ></video>
+      </div>
 
       <Header />
 
-        <div className={styles.logoContainer}>
-          <img
-            src="/AET2023-1.png"
-            alt="Logo"
-            draggable="false"
-            className={styles.logo}
-          />
-        </div>
+      <div className={styles.logoContainer}>
+        <img
+          src="/AET2023-1.png"
+          alt="Logo"
+          draggable="false"
+          className={styles.logo}
+        />
+      </div>
 
-        <div className={styles.buttonContainer}>
-          <button onClick={ChangeClick} className={styles.button}>
-            修改報名資料
-          </button>
-        </div> 
+      <div className={styles.buttonContainer}>
+        <button onClick={RuleClick2} className={styles.button}>
+          賽程表與選手名單
+        </button>
+        <button onClick={LiveClick} className={styles.button2}>
+          比賽轉播
+        </button>
+      </div>
     </div>
-    
   );
 }
