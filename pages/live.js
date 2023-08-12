@@ -2,22 +2,43 @@ import Head from "next/head";
 import styles from "../styles/live.module.css";
 import Header from "../components/Header";
 import VideoGrid from "../components/VideoGrid";
+import { useEffect, useState } from "react";
+import { isMobileDevice } from "../js/cookiesocute";
 
 export default function Live() {
-  const videoGroups = [
-    [
-      { id: "hcu-gAr6BUg", title: "A1下午" },
-      { id: "LISblyDvkQM", title: "A2下午" },
-    ],
-    [
-      { id: "w_RK7odz7TU", title: "A1晚上" },
-      { id: "7jQdrfaxOmo", title: "A2晚上" },
-    ],
-    [
-      { id: "839mmf-5800", title: "資格賽抽籤" },
-      { id: "VC6zQ3jP7JY", title: "獎品說明" },
-    ],
-  ];
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(isMobileDevice());
+  }, []);
+
+  let videoGroups = [];
+
+  if (isMobile) {
+    videoGroups = [
+      [{ id: "hcu-gAr6BUg", title: "A1下午" }],
+      [{ id: "LISblyDvkQM", title: "A2下午" }],
+      [{ id: "w_RK7odz7TU", title: "A1晚上" }],
+      [{ id: "7jQdrfaxOmo", title: "A2晚上" }],
+      [{ id: "839mmf-5800", title: "資格賽抽籤" }],
+      [{ id: "VC6zQ3jP7JY", title: "獎品說明" }],
+    ];
+  } else {
+    videoGroups = [
+      [
+        { id: "hcu-gAr6BUg", title: "A1下午" },
+        { id: "LISblyDvkQM", title: "A2下午" },
+      ],
+      [
+        { id: "w_RK7odz7TU", title: "A1晚上" },
+        { id: "7jQdrfaxOmo", title: "A2晚上" },
+      ],
+      [
+        { id: "839mmf-5800", title: "資格賽抽籤" },
+        { id: "VC6zQ3jP7JY", title: "獎品說明" },
+      ],
+    ];
+  }
 
   return (
     <div className={styles.container}>
