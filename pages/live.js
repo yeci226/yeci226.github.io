@@ -16,6 +16,10 @@ export default function Live() {
 
   if (isMobile) {
     videoGroups = [
+      [{ id: "emVpc3haECg", title: "B1下午" }],
+      [{ id: "5-rvZQOhE9g", title: "B2下午" }],
+      [{ id: "", title: "B1晚上" }],
+      [{ id: "T5KGzNhnE9g", title: "B2晚上" }],
       [{ id: "hcu-gAr6BUg", title: "A1下午" }],
       [{ id: "LISblyDvkQM", title: "A2下午" }],
       [{ id: "hr4d6M5tuTU", title: "A1晚上" }],
@@ -25,6 +29,14 @@ export default function Live() {
     ];
   } else {
     videoGroups = [
+      [
+        { id: "emVpc3haECg", title: "B1下午" },
+        { id: "5-rvZQOhE9g", title: "B2下午" },
+      ],
+      [
+        { id: "", title: "B1晚上" },
+        { id: "T5KGzNhnE9g", title: "B2晚上" },
+      ],
       [
         { id: "hcu-gAr6BUg", title: "A1下午" },
         { id: "LISblyDvkQM", title: "A2下午" },
