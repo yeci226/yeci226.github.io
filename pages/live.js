@@ -18,7 +18,7 @@ export default function Live() {
     videoGroups = [
       [{ id: "emVpc3haECg", title: "B1下午" }],
       [{ id: "5-rvZQOhE9g", title: "B2下午" }],
-      [{ id: "", title: "B1晚上" }],
+      [{ id: "zI8MnNIdGQU", title: "B1晚上" }],
       [{ id: "T5KGzNhnE9g", title: "B2晚上" }],
       [{ id: "hcu-gAr6BUg", title: "A1下午" }],
       [{ id: "LISblyDvkQM", title: "A2下午" }],
