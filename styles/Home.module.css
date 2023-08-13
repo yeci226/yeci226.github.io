@@ -94,7 +94,7 @@
   font-weight: bold;
   background: none;
   color: #fff;
-  border-color: #ea7ba4;
+  border-color: #FF9B9B;
   border-radius: 12px;
   border-width: 3px;
   cursor: pointer;
@@ -102,9 +102,33 @@
   position: relative;
   overflow: hidden;
   outline: none;
+  margin-right: 15px;
 }
 
 .button:hover {
   transform: scale(1.15);
-  background: #ea7ba4;
+  background: #FF9B9B;
+}
+
+.button2 {
+  user-select: none; 
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  background: none;
+  color: #fff;
+  border-color: #FFD6A5;
+  border-radius: 12px;
+  border-width: 3px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  margin-left: 15px;
+}
+
+.button2:hover {
+  transform: scale(1.15);
+  background: #FFD6A5;
 }
