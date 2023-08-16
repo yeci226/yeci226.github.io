@@ -50,7 +50,7 @@ export default function Home() {
 
       <div className={styles.buttonContainer}>
         <button onClick={RuleClick2} className={styles.button}>
-          賽程表與選手名單
+          決賽應援表單
         </button>
         <button onClick={LiveClick} className={styles.button2}>
           比賽轉播

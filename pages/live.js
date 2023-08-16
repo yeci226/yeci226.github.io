@@ -16,6 +16,8 @@ export default function Live() {
 
   if (isMobile) {
     videoGroups = [
+      [{ id: "W2JCgdsSnk8", title: "比賽直播：重賽" }],
+      [{ id: "OkjVNAq3PkY", title: "比賽直播：決賽抽籤" }],
       [{ id: "emVpc3haECg", title: "B1下午" }],
       [{ id: "5-rvZQOhE9g", title: "B2下午" }],
       [{ id: "zI8MnNIdGQU", title: "B1晚上" }],
@@ -29,6 +31,10 @@ export default function Live() {
     ];
   } else {
     videoGroups = [
+      [
+        { id: "W2JCgdsSnk8", title: "比賽直播：重賽" },
+        { id: "OkjVNAq3PkY", title: "比賽直播：決賽抽籤" },
+      ],
       [
         { id: "emVpc3haECg", title: "B1下午" },
         { id: "5-rvZQOhE9g", title: "B2下午" },
