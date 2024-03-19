@@ -1,0 +1,17 @@
+{
+    "Nerdy's another land":{
+        "description": "A nerdy found a land where he can be a king",
+        "status": false,
+        "image": "https://static-00.iconduck.com/assets.00/nerd-face-emoji-1024x1024-21h4a5us.png"
+    },
+    "When nerdy have a donkey":{
+        "description": "A nerdy discovered he have a donkey and he can be a king of the land",
+        "status": true,
+        "image": "https://static-00.iconduck.com/assets.00/nerd-face-emoji-1024x1024-21h4a5us.png"
+    },
+    "King of the nerds":{
+        "description": "A nerdy became a king of the land but everyone is laughing at him",
+        "status": true,
+        "image": "https://static-00.iconduck.com/assets.00/nerd-face-emoji-1024x1024-21h4a5us.png"
+    }
+}

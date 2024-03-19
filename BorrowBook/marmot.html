@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="public/icon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="public/icon.ico" type="image/x-icon">
+    <title>Marmot Library</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            position: relative;
+            /* Ensure relative positioning for the plus button */
+        }
+
+        #video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: grayscale(100%);
+        }
+
+        .content {
+            margin-top: 80vh;
+            margin-bottom: 80vh;
+            padding: 20px;
+        }
+
+        .centered-content {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        .book-card-container {
+            text-align: center;
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .book-card {
+            transition: transform 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 20px);
+            max-width: 300px;
+            margin: 10px;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .book-image {
+            flex: 0 0 auto;
+            margin-bottom: 10px;
+        }
+
+        .book-details {
+            flex: 1;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .book-card:hover {
+            transform: scale(1.1);
+        }
+
+        .plus-button {
+            user-select: none;
+            position: fixed;
+            bottom: 3%;
+            right: 2%;
+            z-index: 999;
+            width: 40px;
+            height: 40px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .plus-button:hover {
+            background-color: #2980b9;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <video id="video-background" autoplay muted loop>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="bookMain" class="centered-content">
+        <h1>Welcome to Marmot Library</h1>
+        <p>Discover a world of knowledge at your fingertips.</p>
+        <a href="#" class="button">Browse Books</a>
+    </div>
+
+    <div id="bookDetail" class="content centered-content">
+        <h1>Book Details</h1>
+        <p>This is where the book details will be displayed.</p>
+        <div class="book-card-container">
+        </div>
+    </div>
+
+    <!-- 加号按钮 -->
+    <div class="plus-button" onclick="openAddBookModal()">+</div>
+
+    <!-- 模态框 -->
+    <div id="addBookModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddBookModal()">&times;</span>
+            <h2>Add Book</h2>
+            <form id="bookForm">
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title"><br>
+                <label for="description">Description:</label><br>
+                <textarea id="description" name="description"></textarea><br>
+                <label for="imageURL">Image URL:</label><br>
+                <input type="text" id="imageURL" name="imageURL"><br>
+                <label for="status">Status:</label><br>
+                <select id="status" name="status">
+                    <option value="available">Available</option>
+                    <option value="borrowed">Borrowed</option>
+                </select><br><br>
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var browseButton = document.querySelector(".button");
+            var bookDetailSection = document.getElementById("bookDetail");
+            browseButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                bookDetailSection.scrollIntoView({ behavior: "smooth" });
+            });
+            loadRandomVideo();
+            loadBookDetails();
+        });
+
+        async function loadBookDetails() {
+            var bookData = await fetch("book.json").then(function (response) {
+                return response.json();
+            })
+
+            var bookContainer = document.querySelector(".book-card-container");
+            bookContainer.innerHTML = '';
+
+            for (var bookTitle in bookData) {
+                if (bookData.hasOwnProperty(bookTitle)) {
+                    var book = bookData[bookTitle];
+                    var bookCard = document.createElement("div");
+                    bookCard.className = "book-card";
+
+                    bookCard.innerHTML = `
+            ${book.image ? `
+                <div class="book-image">
+                    <img src="${book.image}" alt="${bookTitle}" style="max-width: 100px;">
+                </div>
+            ` : ""}
+            <div class="book-details" style="${!book.image ? 'text-align: center;' : ''}">
+                <h2>${bookTitle ?? "Unknown book"}</h2>
+                <p>${book.description ?? "No description about this book"}</p>
+                <h4>${book.status ? "✔️YOU ARE MARMOT" : "❌NO MARMOT"}</h4>
+            </div>
+            `;
+
+                    bookContainer.appendChild(bookCard);
+                }
+            }
+
+        }
+
+        function loadRandomVideo() {
+            var videoFiles = [
+                "public/bath.mp4",
+                "public/friend.mp4",
+                "public/cake.mp4",
+            ];
+            var randomVideo = videoFiles[Math.floor(Math.random() * videoFiles.length)];
+
+            var video = document.getElementById("video-background");
+            video.getElementsByTagName("source")[0].src = randomVideo;
+            video.load();
+        }
+
+        function updateVideoSize() {
+            var windowWidth = window.innerWidth;
+            var windowHeight = window.innerHeight;
+            var video = document.getElementById("video-background");
+            var videoAspectRatio = video.videoWidth / video.videoHeight;
+            var windowAspectRatio = windowWidth / windowHeight;
+            if (windowAspectRatio > videoAspectRatio) {
+                video.style.width = "100%";
+                video.style.height = "auto";
+            } else {
+                video.style.width = "auto";
+                video.style.height = "100%";
+            }
+        }
+
+        window.onload = function () {
+            updateVideoSize();
+            createPlusButton();
+        };
+        window.onresize = updateVideoSize;
+
+        function createPlusButton() {
+            var plusButton = document.createElement("div");
+            plusButton.className = "plus-button";
+            plusButton.textContent = "+";
+            document.body.appendChild(plusButton);
+        }
+
+        function openAddBookModal() {
+            console.log("Hello")
+            var modal = document.getElementById("addBookModal");
+            modal.style.display = "block";
+        }
+
+        function closeAddBookModal() {
+            var modal = document.getElementById("addBookModal");
+            modal.style.display = "none";
+        }
+
+        // 处理提交表单
+        document.getElementById("bookForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var formData = new FormData(event.target);
+            var bookData = {};
+            for (var pair of formData.entries()) {
+                bookData[pair[0]] = pair[1];
+            }
+            console.log("Book data:", bookData);
+            // 这里可以添加将书籍数据发送到服务器的逻辑
+            closeAddBookModal(); // 提交后关闭模态框
+        });
+    </script>
+</body>
+</html>
