@@ -15,7 +15,6 @@
             scroll-behavior: smooth;
             overflow-x: hidden;
             position: relative;
-            /* Ensure relative positioning for the plus button */
         }
 
         #video-background {
@@ -168,34 +167,68 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        @media screen and (max-width: 768px) {
+            .content {
+                margin-top: 180vh;
+                margin-bottom: 40vh;
+                padding: 10px;
+            }
+
+            .centered-content {
+                top: 40%;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            .plus-button {
+                bottom: 5%;
+                right: 5%;
+                width: 30px;
+                height: 30px;
+                font-size: 20px;
+            }
+
+            .book-card {
+                width: calc(100% - 20px);
+            }
+        }
     </style>
 </head>
 <body>
     <video id="video-background" autoplay muted loop>
-        <source src="" type="video/mp4">
+        <source src="" type="video/webm">
         Your browser does not support the video tag.
     </video>
 
     <div id="bookMain" class="centered-content">
-        <h1>Welcome to Marmot Library</h1>
-        <p>Discover a world of knowledge at your fingertips.</p>
-        <a href="#" class="button">Browse Books</a>
+        <h1>歡迎來到土撥鼠圖書館</h1>
+        <p>觸手可及的知識世界</p>
+        <a href="#" class="button">瀏覽書籍</a>
     </div>
 
     <div id="bookDetail" class="content centered-content">
-        <h1>Book Details</h1>
-        <p>This is where the book details will be displayed.</p>
+        <h1>書籍詳情</h1>
+        <p>這是顯示書籍詳細資訊的地方</p>
         <div class="book-card-container">
         </div>
     </div>
 
-    <!-- 加号按钮 -->
-    <div class="plus-button" onclick="openAddBookModal()">+</div>
+    <div class="plus-button">+</div>
 
-    <!-- 模态框 -->
     <div id="addBookModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeAddBookModal()">&times;</span>
             <h2>Add Book</h2>
             <form id="bookForm">
                 <label for="title">Title:</label><br>
@@ -204,125 +237,10 @@
                 <textarea id="description" name="description"></textarea><br>
                 <label for="imageURL">Image URL:</label><br>
                 <input type="text" id="imageURL" name="imageURL"><br>
-                <label for="status">Status:</label><br>
-                <select id="status" name="status">
-                    <option value="available">Available</option>
-                    <option value="borrowed">Borrowed</option>
-                </select><br><br>
                 <button type="submit">Add Book</button>
             </form>
         </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var browseButton = document.querySelector(".button");
-            var bookDetailSection = document.getElementById("bookDetail");
-            browseButton.addEventListener("click", function (event) {
-                event.preventDefault();
-                bookDetailSection.scrollIntoView({ behavior: "smooth" });
-            });
-            loadRandomVideo();
-            loadBookDetails();
-        });
-
-        async function loadBookDetails() {
-            var bookData = await fetch("book.json").then(function (response) {
-                return response.json();
-            })
-
-            var bookContainer = document.querySelector(".book-card-container");
-            bookContainer.innerHTML = '';
-
-            for (var bookTitle in bookData) {
-                if (bookData.hasOwnProperty(bookTitle)) {
-                    var book = bookData[bookTitle];
-                    var bookCard = document.createElement("div");
-                    bookCard.className = "book-card";
-
-                    bookCard.innerHTML = `
-            ${book.image ? `
-                <div class="book-image">
-                    <img src="${book.image}" alt="${bookTitle}" style="max-width: 100px;">
-                </div>
-            ` : ""}
-            <div class="book-details" style="${!book.image ? 'text-align: center;' : ''}">
-                <h2>${bookTitle ?? "Unknown book"}</h2>
-                <p>${book.description ?? "No description about this book"}</p>
-                <h4>${book.status ? "✔️YOU ARE MARMOT" : "❌NO MARMOT"}</h4>
-            </div>
-            `;
-
-                    bookContainer.appendChild(bookCard);
-                }
-            }
-
-        }
-
-        function loadRandomVideo() {
-            var videoFiles = [
-                "public/bath.mp4",
-                "public/friend.mp4",
-                "public/cake.mp4",
-            ];
-            var randomVideo = videoFiles[Math.floor(Math.random() * videoFiles.length)];
-
-            var video = document.getElementById("video-background");
-            video.getElementsByTagName("source")[0].src = randomVideo;
-            video.load();
-        }
-
-        function updateVideoSize() {
-            var windowWidth = window.innerWidth;
-            var windowHeight = window.innerHeight;
-            var video = document.getElementById("video-background");
-            var videoAspectRatio = video.videoWidth / video.videoHeight;
-            var windowAspectRatio = windowWidth / windowHeight;
-            if (windowAspectRatio > videoAspectRatio) {
-                video.style.width = "100%";
-                video.style.height = "auto";
-            } else {
-                video.style.width = "auto";
-                video.style.height = "100%";
-            }
-        }
-
-        window.onload = function () {
-            updateVideoSize();
-            createPlusButton();
-        };
-        window.onresize = updateVideoSize;
-
-        function createPlusButton() {
-            var plusButton = document.createElement("div");
-            plusButton.className = "plus-button";
-            plusButton.textContent = "+";
-            document.body.appendChild(plusButton);
-        }
-
-        function openAddBookModal() {
-            console.log("Hello")
-            var modal = document.getElementById("addBookModal");
-            modal.style.display = "block";
-        }
-
-        function closeAddBookModal() {
-            var modal = document.getElementById("addBookModal");
-            modal.style.display = "none";
-        }
-
-        // 处理提交表单
-        document.getElementById("bookForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            var formData = new FormData(event.target);
-            var bookData = {};
-            for (var pair of formData.entries()) {
-                bookData[pair[0]] = pair[1];
-            }
-            console.log("Book data:", bookData);
-            // 这里可以添加将书籍数据发送到服务器的逻辑
-            closeAddBookModal(); // 提交后关闭模态框
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

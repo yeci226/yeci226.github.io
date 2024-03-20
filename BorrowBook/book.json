@@ -1,17 +1,17 @@
 {
-    "Nerdy's another land":{
-        "description": "A nerdy found a land where he can be a king",
-        "status": false,
-        "image": "https://static-00.iconduck.com/assets.00/nerd-face-emoji-1024x1024-21h4a5us.png"
-    },
-    "When nerdy have a donkey":{
-        "description": "A nerdy discovered he have a donkey and he can be a king of the land",
+    "上帝的骰子，量子物理大白話":{
+        "description": "懂不懂量子力學是物理學家的事，會不會用就是咱們的事，利用好的話，你就可能是下一個馬雲或比爾‧蓋茲。",
         "status": true,
-        "image": "https://static-00.iconduck.com/assets.00/nerd-face-emoji-1024x1024-21h4a5us.png"
+        "image": "https://cdn.readmoo.com/cover/ed/aiifngg_460x580.jpg?v=1707273209"
     },
-    "King of the nerds":{
-        "description": "A nerdy became a king of the land but everyone is laughing at him",
+    "怪奇科學研究所：42個腦洞大開的趣味科學故事":{
+        "description": "42個腦洞大開的趣味科學故事，解答了眾說紛紜的「科學謎團」、揭露了既危險又離奇的「驚人實驗」、細數了改變文明的「里程時刻」，還介紹了科學史上啟迪人心的「關鍵人物」。不僅串起了科學發展的主要脈絡，跨領域的豐富知識，蘊藏了教室之外的幽默風趣，同時滿足學習科學的好奇心。",
         "status": true,
-        "image": "https://static-00.iconduck.com/assets.00/nerd-face-emoji-1024x1024-21h4a5us.png"
+        "image": "https://s.eslite.com/upload/product/o/2681852869007/20200212060847912049.jpg"
+    },
+    "被討厭的勇氣：自我啟發之父「阿德勒」的教導":{
+        "description": "什麼是自由？什麼是勇氣？要滿足大家的期待，才是好人嗎？多希望年輕時，就看過這本書，那麼也許會讓人懂得，不用辛苦地活在別人的期望裡",
+        "status": true,
+        "image": "https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&quality=80&url=https%3A%2F%2Fimages.vocus.cc%2F5d775022-29ca-4b8d-b10e-778ba7ae2431.webp&width=740&sign=t0I373Ols2I26oUDienW3UaeU0VNnB5EK-8PaMS99R4"
     }
 }
