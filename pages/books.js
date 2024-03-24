@@ -3,16 +3,23 @@ import styles from "../styles/books.module.css";
 import Header from "../components/Header";
 import RandomVideo from "../js/randomBg";
 import { useEffect, useState } from "react";
+import kv from "@vercel/kv";
 
 export default function Books() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("/book.json");
-      const bookData = await response.json();
+      if (!kv.get("books")) {
+        const response = await fetch("/book.json");
+        const bookData = await response.json();
 
-      setBooks(bookData);
+        kv.set("books", bookData);
+        setBooks(bookData);
+      } else {
+        const bookData = await kv.get("books");
+        setBooks(bookData);
+      }
     };
 
     fetchData();

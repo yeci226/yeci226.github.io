@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import RandomVideo from "../js/randomBg";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import kv from "@vercel/kv";
 
 export default function List() {
   const router = useRouter();
@@ -14,8 +15,7 @@ export default function List() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("/book.json");
-      const bookData = await response.json();
+      const bookData = await kv.get("books");
 
       setBooks(bookData);
     };
