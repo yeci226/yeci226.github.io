@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import RandomVideo from "../js/randomBg";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import bookData from "../json/book.json";
 
 export default function List() {
   const router = useRouter();
@@ -13,23 +14,16 @@ export default function List() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("/book.json");
-      const bookData = await response.json();
+    setBooks(bookData);
 
-      setBooks(bookData);
-
-      const cookies = document.cookie.split("; ");
-      const loggedInUserCookie = cookies.find((cookie) =>
-        cookie.startsWith("loggedInUser=")
-      );
-      const loggedInUser = loggedInUserCookie
-        ? loggedInUserCookie.split("=")[1]
-        : null;
-      setLoggedInUsername(loggedInUser);
-    };
-
-    fetchData();
+    const cookies = document.cookie.split("; ");
+    const loggedInUserCookie = cookies.find((cookie) =>
+      cookie.startsWith("loggedInUser=")
+    );
+    const loggedInUser = loggedInUserCookie
+      ? loggedInUserCookie.split("=")[1]
+      : null;
+    setLoggedInUsername(loggedInUser);
   }, []);
 
   const handleReturn = async (book) => {

@@ -5,10 +5,8 @@ export default async function handler(req, res) {
     const { bookId, status, borrower } = req.body;
 
     try {
-      console.info(await fs.readdir(process.cwd()));
-      console.info(await fs.readdir(`${process.cwd()}/pages`));
-      const data = await fs.readFile("./public/book.json");
-      let books = JSON.parse(data);
+      const file = await fs.readFile(process.cwd() + "/json/book.json", "utf8");
+      let books = JSON.parse(file);
 
       const index = books.findIndex((book) => book.id === parseInt(bookId));
       if (index !== -1) {
@@ -16,7 +14,7 @@ export default async function handler(req, res) {
         books[index].borrower = borrower;
 
         await fs.writeFile(
-          "./public/book.json",
+          process.cwd() + "/json/book.json",
           JSON.stringify(books, null, 2)
         );
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import RandomVideo from "../../js/randomBg";
 import Header from "../../components/Header";
 import styles from "../../styles/book.module.css";
+import bookData from "../../json/book.json";
 
 export default function Book() {
   const router = useRouter();
@@ -13,8 +14,6 @@ export default function Book() {
 
   useEffect(() => {
     const fetchBookData = async () => {
-      const response = await fetch(`/book.json`);
-      const bookData = await response.json();
       const selectedBook = bookData.find((book) => {
         return book.id === parseInt(bookId, 10);
       });
