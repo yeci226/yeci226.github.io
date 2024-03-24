@@ -1,18 +1,27 @@
-import kv from "@vercel/kv";
+import fsPromises from "fs/promises";
+import path from "path";
+
+const dataFilePath = path.join(process.cwd(), "json/book.json");
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { bookId, status, borrower } = req.body;
 
     try {
-      let books = await kv.get("books");
+      console.log(await fsPromises.readdir(process.cwd()));
+      console.log(await fsPromises.readdir(process.cwd() + "/json"));
+      const jsonData = await fsPromises.readFile(dataFilePath);
+      let books = JSON.parse(jsonData);
 
       const index = books.findIndex((book) => book.id === parseInt(bookId));
       if (index !== -1) {
         books[index].status = status;
         books[index].borrower = borrower;
 
-        kv.set("books", books);
+        await fsPromises.writeFile(
+          dataFilePath,
+          JSON.stringify(books, null, 2)
+        );
 
         res.status(200).json({ success: true, message: "書籍狀態已更新" });
       } else {
