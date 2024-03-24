@@ -6,6 +6,7 @@ export default async function handler(req, res) {
 
     try {
       console.info(await fs.readdir(process.cwd()));
+      console.info(await fs.readdir(`${process.cwd()}/pages`));
       const data = await fs.readFile("./public/book.json");
       let books = JSON.parse(data);
 
