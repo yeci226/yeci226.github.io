@@ -1,0 +1,142 @@
+
+.container {
+  left: auto;
+  right: auto;
+  width: 70vw;
+  height: auto;
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  background-color: rgb(244, 244, 244, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.background_video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  z-index: -1;
+  filter: grayscale(100%);
+}
+
+.background_image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  z-index: -1;
+}
+  
+.title {
+    font-size: 50px;
+    text-align: center;
+
+    font-weight: bold;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+  
+.textSpace {
+    font-size: 20px;
+    text-align: center;
+
+    font-family: 'Noto Sans TC', sans-serif;
+}
+  
+.logo {
+    width: 10vw;
+    height: auto;
+
+}
+  
+.bookContainer {
+    margin-top: 50px;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  
+.bookList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin-top: 5vh;
+}
+
+.bookName {
+  color: rgb(3, 3, 3);
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.bookDesc {
+  color: rgb(94, 94, 94);
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.bookStatus {
+  color: rgb(94, 94, 94);
+  font-family: 'Noto Sans TC', sans-serif;
+}
+  
+.books {
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+  
+.books:hover {
+  transform: scale(1.1);
+}
+  
+.image {
+  width: 10vh;
+  height: auto;
+  object-fit: cover;
+}
+
+.returnBtn {
+  user-select: none; 
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  background: none;
+  color: #fff;
+  border-color: #00b5c2;
+  border-radius: 12px;
+  border-width: 3px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  margin-left: 15px;
+}
+
+.returnBtn:hover {
+  transform: scale(1.15);
+  background: #00b5c2;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin-top: 17.5vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bookList {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+  }
+}
