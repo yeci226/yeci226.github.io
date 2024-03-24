@@ -5,9 +5,7 @@ export default async function handler(req, res) {
     const { bookId, status, borrower } = req.body;
 
     try {
-      console.info("Path: ", process.cwd());
-      const data = await fs.readFile("public/book.json");
-      console.info("Path: ", process.cwd() + "/public/book.json");
+      const data = await fs.readFile("./public/book.json");
       let books = JSON.parse(data);
 
       const index = books.findIndex((book) => book.id === parseInt(bookId));
@@ -15,8 +13,10 @@ export default async function handler(req, res) {
         books[index].status = status;
         books[index].borrower = borrower;
 
-        await fs.writeFile("public/book.json", JSON.stringify(books, null, 2));
-        console.info("Path: ", process.cwd() + "/public/book.json");
+        await fs.writeFile(
+          "./public/book.json",
+          JSON.stringify(books, null, 2)
+        );
 
         res.status(200).json({ success: true, message: "書籍狀態已更新" });
       } else {
