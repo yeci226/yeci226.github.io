@@ -1,20 +1,25 @@
-import fs from "fs/promises";
+import fsPromises from "fs/promises";
+import path from "path";
+
+const dataFilePath = path.join(process.cwd(), "json/book.json");
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { bookId, status, borrower } = req.body;
 
     try {
-      const file = await fs.readFile(process.cwd() + "/json/book.json", "utf8");
-      let books = JSON.parse(file);
+      console.log(await fs.readdir(process.cwd()));
+      console.log(await fs.readdir(process.cwd() + "/json"));
+      const jsonData = await fsPromises.readFile(dataFilePath);
+      let books = JSON.parse(jsonData);
 
       const index = books.findIndex((book) => book.id === parseInt(bookId));
       if (index !== -1) {
         books[index].status = status;
         books[index].borrower = borrower;
 
-        await fs.writeFile(
-          process.cwd() + "/json/book.json",
+        await fsPromises.writeFile(
+          dataFilePath,
           JSON.stringify(books, null, 2)
         );
 

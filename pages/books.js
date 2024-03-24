@@ -3,13 +3,19 @@ import styles from "../styles/books.module.css";
 import Header from "../components/Header";
 import RandomVideo from "../js/randomBg";
 import { useEffect, useState } from "react";
-import bookData from "../json/book.json";
 
 export default function Books() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    setBooks(bookData);
+    const fetchData = async () => {
+      const response = await fetch("/book.json");
+      const bookData = await response.json();
+
+      setBooks(bookData);
+    };
+
+    fetchData();
   }, []);
 
   return (
