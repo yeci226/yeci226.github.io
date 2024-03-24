@@ -10,6 +10,7 @@ export default function Books() {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.info(kv.get("books"));
       if (!kv.get("books")) {
         const response = await fetch("/book.json");
         const bookData = await response.json();
