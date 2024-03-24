@@ -8,8 +8,8 @@ export default async function handler(req, res) {
     const { bookId, status, borrower } = req.body;
 
     try {
-      console.log(await fs.readdir(process.cwd()));
-      console.log(await fs.readdir(process.cwd() + "/json"));
+      console.log(await fsPromises.readdir(process.cwd()));
+      console.log(await fsPromises.readdir(process.cwd() + "/json"));
       const jsonData = await fsPromises.readFile(dataFilePath);
       let books = JSON.parse(jsonData);
 
