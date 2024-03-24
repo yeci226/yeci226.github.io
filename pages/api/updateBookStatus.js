@@ -5,6 +5,7 @@ export default async function handler(req, res) {
     const { bookId, status, borrower } = req.body;
 
     try {
+      console.info(await fs.readdir(process.cwd()));
       const data = await fs.readFile("./public/book.json");
       let books = JSON.parse(data);
 
