@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/nav.module.css";
 import { isMobileDevice, LoginClick, LogoutClick } from "../js/cookiesocute";
+import accountData from "../public/account.json";
 
 export default function Header() {
   const router = useRouter();
@@ -11,7 +12,12 @@ export default function Header() {
   const [logoWidth, setLogoWidth] = useState(250);
   const [logoHeight, setLogoHeight] = useState(110);
   const [showLoginButton, setShowLoginButton] = useState(true);
-  const [loggedInUsername, setLoggedInUsername] = useState(null);
+  const [showAddButton, setShowAddButton] = useState(true);
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+  const isAdmin =
+    loggedInUser &&
+    accountData.find((user) => user.username === loggedInUser)?.admin;
 
   const handleLoginClick = () => {
     router.push("/login");
@@ -30,6 +36,7 @@ export default function Header() {
     }
 
     setShowLoginButton(!router.pathname.includes("/login"));
+    setShowAddButton(!router.pathname.includes("/login"));
 
     const cookies = document.cookie.split("; ");
     const loggedInUserCookie = cookies.find((cookie) =>
@@ -38,14 +45,18 @@ export default function Header() {
     const loggedInUser = loggedInUserCookie
       ? loggedInUserCookie.split("=")[1]
       : null;
-    setLoggedInUsername(loggedInUser);
+    setLoggedInUser(loggedInUser);
   }, [router.pathname, router]);
 
   const handleLogout = () => {
     document.cookie =
       "loggedInUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    setLoggedInUsername(null);
+    setLoggedInUser(null);
     router.push("/");
+  };
+
+  const handleAddClick = () => {
+    router.push("/add");
   };
 
   return (
@@ -62,9 +73,15 @@ export default function Header() {
         </div>
       </div>
 
-      {loggedInUsername ? (
+      {showLoginButton && isAdmin && (
+        <button className={styles.addButton} onClick={handleAddClick}>
+          添加書籍
+        </button>
+      )}
+
+      {loggedInUser ? (
         <p className={styles.welcomeMessage} onClick={handleLogout}>
-          歡迎 {loggedInUsername}
+          歡迎 {loggedInUser}
         </p>
       ) : (
         showLoginButton && (

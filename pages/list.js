@@ -33,7 +33,7 @@ export default function List() {
   }, []);
 
   const handleReturn = async (book) => {
-    if (loggedInUsername && !book.status) {
+    if (loggedInUsername && book.status != null) {
       const response = await fetch(`/api/updateBookStatus`, {
         method: "POST",
         headers: {
@@ -41,15 +41,14 @@ export default function List() {
         },
         body: JSON.stringify({
           bookId: book.id,
-          status: true,
+          status: null,
           borrower: "",
+          method: "update",
         }),
       });
 
       if (response.ok) {
         window.alert(`你已成功歸還 ${book.title}`);
-        const updatedBook = { ...book, status: false };
-        setBook(updatedBook);
         router.reload();
       } else {
         window.alert("更新書籍狀態失敗");

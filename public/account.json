@@ -1,7 +1,8 @@
 [
     {
         "username": "admin",
-        "password": "yeci1014207"
+        "password": "yeci1014207",
+        "admin": true
     },
     {
         "username": "1006101",

@@ -57,7 +57,15 @@ export default function Books() {
                 <h3 className={styles.bookName}>{book.title}</h3>
                 <p className={styles.bookDesc}>{book.description}</p>
                 <h3 className={styles.bookStatus}>
-                  {book.status ? "✔️可借用" : `❌已被${book.borrower}借用`}
+                  {book.status == null ? (
+                    "✔️可借用"
+                  ) : (
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: `❌已被 ${book.borrower} 借用<br>借用時間 ${book.status}`,
+                      }}
+                    />
+                  )}
                 </h3>
               </a>
             ))}

@@ -129,7 +129,30 @@
   color: #fff;
   font-size: 24px;
   margin-left: 15px;
+}
 
+.addButton {
+  user-select: none; 
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  background: none;
+  color: #00e1ffbb;
+  border-color: #00e1ffbb;
+  border-radius: 12px;
+  border-width: 3px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  margin-left: 70%;
+}
+
+.addButton:hover {
+  transform: scale(1.15);
+  background: #009cb1bb;
+  cursor: pointer;
 }
 
 @media (max-width: 900px) {

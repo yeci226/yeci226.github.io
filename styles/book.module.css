@@ -100,7 +100,7 @@
     object-fit: cover;
 }
 
-.button {
+.borrowButton {
     user-select: none; 
     padding: 12px 24px;
     font-size: 18px;
@@ -118,16 +118,40 @@
     margin-right: 15px;
 }
 
-.button:hover {
+.borrowButton:hover {
     transform: scale(1.15);
     background: #0000003b;
     cursor: pointer;
 }
 
-.button.disabled:hover {
+.borrowButton.disabled:hover {
     transform: none;
     background: none;
     cursor: not-allowed;
+}
+
+.deleteButton {
+    user-select: none; 
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    background: none;
+    color: #ff0000;
+    border-color: #ff0000;
+    border-radius: 12px;
+    border-width: 3px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    margin-right: 15px;
+}
+
+.deleteButton:hover {
+    transform: scale(1.15);
+    background: #ff8f8f8b;
+    cursor: pointer;
 }
 
 @media (max-width: 600px) {

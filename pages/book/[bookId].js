@@ -4,20 +4,22 @@ import { useEffect, useState } from "react";
 import RandomVideo from "../../js/randomBg";
 import Header from "../../components/Header";
 import styles from "../../styles/book.module.css";
+import moment from "moment";
+import accountData from "../../public/account.json";
 
 export default function Book() {
   const router = useRouter();
   const { bookId } = router.query;
   const [book, setBook] = useState(null);
-  const [loggedInUsername, setLoggedInUsername] = useState(null);
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   useEffect(() => {
     const fetchBookData = async () => {
       const response = await fetch(`/book.json`);
       const bookData = await response.json();
-      const selectedBook = bookData.find((book) => {
-        return book.id === parseInt(bookId, 10);
-      });
+      const selectedBook = bookData.find(
+        (book) => book.id === parseInt(bookId, 10)
+      );
       setBook(selectedBook);
     };
 
@@ -32,35 +34,76 @@ export default function Book() {
     const loggedInUser = loggedInUserCookie
       ? loggedInUserCookie.split("=")[1]
       : null;
-    setLoggedInUsername(loggedInUser);
+    setLoggedInUser(loggedInUser);
   }, [bookId]);
 
-  const handleBorrow = async (bookId) => {
-    if (loggedInUsername && book.status) {
-      const response = await fetch(`/api/updateBookStatus`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          bookId: bookId,
-          status: false,
-          borrower: loggedInUsername,
-        }),
-      });
+  const isAdmin =
+    loggedInUser &&
+    accountData.find((user) => user.username === loggedInUser)?.admin;
 
-      if (response.ok) {
-        window.alert(`你已成功借用 ${book.title}`);
-        const updatedBook = { ...book, status: false };
-        setBook(updatedBook);
-        router.push("/list");
-      } else {
-        window.alert("更新書籍狀態失敗");
-      }
-    } else if (!loggedInUsername) {
+  const handleBorrow = async (bookId) => {
+    if (!loggedInUser) {
       window.alert("請先登入");
-    } else {
+      return;
+    }
+
+    if (book.status !== null) {
       window.alert(`${book.title} 已被借用`);
+      return;
+    }
+
+    const response = await fetch(`/api/updateBookStatus`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        bookId: bookId,
+        status: moment().format("YYYY-MM-DD HH:mm:ss"),
+        borrower: loggedInUser,
+        method: "update",
+      }),
+    });
+
+    if (response.ok) {
+      window.alert(`你已成功借用 ${book.title}`);
+      const updatedBook = { ...book, status: false };
+      setBook(updatedBook);
+      router.push("/list");
+    } else {
+      window.alert("更新書籍狀態失敗");
+    }
+  };
+
+  const handleDelete = async (bookId) => {
+    if (!loggedInUser) {
+      window.alert("請先登入");
+      return;
+    }
+
+    if (isAdmin !== true) {
+      window.alert(`你沒有權限刪除 ${book.title}`);
+      return;
+    }
+
+    const response = await fetch(`/api/updateBookStatus`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        bookId: bookId,
+        status: moment().format("YYYY-MM-DD HH:mm:ss"),
+        borrower: loggedInUser,
+        method: "delete",
+      }),
+    });
+
+    if (response.ok) {
+      window.alert(`你已成功刪除 ${book.title}`);
+      router.push("/books");
+    } else {
+      window.alert("刪除書籍失敗");
     }
   };
 
@@ -94,17 +137,29 @@ export default function Book() {
           <h3 className={styles.bookName}>{book.title}</h3>
           <p className={styles.bookDesc}>{book.description}</p>
           <h3 className={styles.bookStatus}>
-            {book.status ? "✔️可借用" : `❌已被${book.borrower}借用`}
+            {book.status === null ? "✔️可借用" : `❌已被${book.borrower}借用`}
           </h3>
           <button
-            className={`${styles.button} ${
-              !book.status || !loggedInUsername ? styles.disabled : ""
+            className={`${styles.borrowButton} ${
+              book.status !== null || !loggedInUser ? styles.disabled : ""
             }`}
             onClick={() => handleBorrow(bookId)}
-            disabled={!book.status || !loggedInUsername}
+            disabled={book.status !== null || !loggedInUser}
           >
-            {!loggedInUsername ? "請先登入" : "借用"}
-          </button>{" "}
+            {!loggedInUser ? "請先登入" : "借用"}
+          </button>
+
+          {isAdmin && (
+            <button
+              className={`${styles.deleteButton} ${
+                book.status !== null || !loggedInUser ? styles.disabled : ""
+              }`}
+              onClick={() => handleDelete(bookId)}
+              disabled={book.status !== null || !loggedInUser}
+            >
+              刪除
+            </button>
+          )}
         </div>
       </div>
     </div>
