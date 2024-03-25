@@ -78,6 +78,11 @@
     font-family: 'Noto Sans TC', sans-serif;
 }
 
+.bookID {
+    font-size: 8px;
+    color: rgb(94, 94, 94);
+    font-family: 'Noto Sans TC', sans-serif;
+}
 .bookDesc {
     font-size: 20px;
     color: rgb(94, 94, 94);
@@ -151,6 +156,30 @@
 .deleteButton:hover {
     transform: scale(1.15);
     background: #ff8f8f8b;
+    cursor: pointer;
+}
+
+.cancelButton {
+    user-select: none; 
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    background: none;
+    color: #ff4fd9;
+    border-color: #ff4fd9;
+    border-radius: 12px;
+    border-width: 3px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    margin-right: 15px;
+}
+
+.cancelButton:hover {
+    transform: scale(1.15);
+    background: #ff9ae9bd;
     cursor: pointer;
 }
 

@@ -42,7 +42,7 @@ export default function List() {
         body: JSON.stringify({
           bookId: book.id,
           status: null,
-          borrower: "",
+          borrower: null,
           method: "update",
         }),
       });

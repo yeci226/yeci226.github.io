@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/nav.module.css";
-import { isMobileDevice, LoginClick, LogoutClick } from "../js/cookiesocute";
+import { isMobileDevice } from "../js/cookiesocute";
 import accountData from "../public/account.json";
 
 export default function Header() {
@@ -14,6 +14,10 @@ export default function Header() {
   const [showLoginButton, setShowLoginButton] = useState(true);
   const [showAddButton, setShowAddButton] = useState(true);
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+  const [error, setError] = useState("");
+  const [titleError, setTitleError] = useState(false);
+  const [descriptionError, setDescription] = useState(false);
 
   const isAdmin =
     loggedInUser &&
@@ -48,6 +52,48 @@ export default function Header() {
     setLoggedInUser(loggedInUser);
   }, [router.pathname, router]);
 
+  const handleAddBook = async (e) => {
+    e.preventDefault();
+
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+    const image = document.getElementById("image")?.value ?? "";
+    console.log(image);
+    if (!title) {
+      setTitleError(true);
+      return;
+    } else {
+      setTitleError(false);
+    }
+
+    if (!description) {
+      setDescription(true);
+      return;
+    } else {
+      setDescription(false);
+    }
+
+    const response = await fetch(`/api/updateBookStatus`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        book: { title, description, image },
+        method: "add",
+      }),
+    });
+
+    if (response.ok) {
+      window.alert(`你已成功添加 ${title}`);
+      setShowForm(false);
+      router.push("/books");
+      router.reload();
+    } else {
+      window.alert("添加書籍失敗");
+    }
+  };
+
   const handleLogout = () => {
     document.cookie =
       "loggedInUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -56,7 +102,7 @@ export default function Header() {
   };
 
   const handleAddClick = () => {
-    router.push("/add");
+    setShowForm(!showForm);
   };
 
   return (
@@ -96,6 +142,54 @@ export default function Header() {
             </div>
           </nav>
         )
+      )}
+
+      {showForm && (
+        <form className={`${styles.form} ${showForm ? "visible" : ""}`}>
+          <h3 className={styles.title}>添加書籍</h3>
+
+          <label className={styles.inputTitle} htmlFor="title">
+            書名
+          </label>
+          <input
+            className={`${styles.input} ${titleError ? styles.errorInput : ""}`}
+            type="text"
+            placeholder="請輸入書名..."
+            id="title"
+          ></input>
+          {titleError && <p className={styles.error}>書名不得為空</p>}
+          <label className={styles.inputTitle} htmlFor="description">
+            書籍簡介
+          </label>
+          <div className={styles.passwordContainer}>
+            <input
+              className={`${styles.input} ${
+                descriptionError ? styles.errorInput : ""
+              }`}
+              type="text"
+              placeholder="請輸入書籍簡介"
+              id="description"
+            ></input>
+          </div>
+          {descriptionError && <p className={styles.error}>簡介不得為空</p>}
+          <label className={styles.inputTitle} htmlFor="description">
+            書籍圖片
+          </label>
+          <div className={styles.passwordContainer}>
+            <input
+              className={`${styles.input} ${
+                descriptionError ? styles.errorInput : ""
+              }`}
+              type="text"
+              placeholder="(可選) 請放入書籍圖片網址"
+              id="image"
+            ></input>
+          </div>
+          <button className={styles.button} onClick={handleAddBook}>
+            添加
+          </button>
+          <p className={styles.error}>{error}</p>
+        </form>
       )}
 
       <style jsx>{`

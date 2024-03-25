@@ -17,6 +17,7 @@ export default function Login() {
   const [passwordError, setPasswordError] = useState(false);
   const [loggedInUsername, setLoggedInUsername] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
+  const [isSecondFactorVerified, setIsSecondFactorVerified] = useState(false); // 新增多重驗證狀態
 
   useEffect(() => {
     setIsMobile(isMobileDevice());
@@ -46,14 +47,24 @@ export default function Login() {
     );
 
     if (user) {
-      document.getElementById("username").value = "";
-      document.getElementById("password").value = "";
-      setError("");
-      document.cookie = `loggedInUser=${username}; max-age=${
-        60 * 60 * 24 * 7 * 4
-      }; path=/`;
-      setLoggedInUsername(username);
-      router.push("/");
+      if (user.admin) {
+        const isSecondFactorVerified = prompt("請輸入第二個密碼");
+        if (isSecondFactorVerified === process.env.NEXT_PUBLIC_SECOND_FACTOR) {
+          document.cookie = `loggedInUser=${username}; max-age=${
+            60 * 60 * 24 * 7 * 4
+          }; path=/`;
+          setLoggedInUsername(username);
+          router.push("/");
+        } else {
+          setError("還想登admin? 再想想吧。");
+        }
+      } else {
+        document.cookie = `loggedInUser=${username}; max-age=${
+          60 * 60 * 24 * 7 * 4
+        }; path=/`;
+        setLoggedInUsername(username);
+        router.push("/");
+      }
     } else {
       setError("使用者名稱或密碼錯誤，請重試。");
     }

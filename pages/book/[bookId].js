@@ -67,9 +67,39 @@ export default function Book() {
 
     if (response.ok) {
       window.alert(`你已成功借用 ${book.title}`);
-      const updatedBook = { ...book, status: false };
-      setBook(updatedBook);
       router.push("/list");
+    } else {
+      window.alert("更新書籍狀態失敗");
+    }
+  };
+
+  const handleCancel = async (bookId) => {
+    if (!loggedInUser) {
+      window.alert("請先登入");
+      return;
+    }
+
+    if (book.status == null) {
+      window.alert(`${book.title} 未被借用`);
+      return;
+    }
+
+    const response = await fetch(`/api/updateBookStatus`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        bookId: bookId,
+        status: null,
+        borrower: null,
+        method: "update",
+      }),
+    });
+
+    if (response.ok) {
+      window.alert(`你已成功取消借用 ${book.title}`);
+      router.reload();
     } else {
       window.alert("更新書籍狀態失敗");
     }
@@ -93,8 +123,6 @@ export default function Book() {
       },
       body: JSON.stringify({
         bookId: bookId,
-        status: moment().format("YYYY-MM-DD HH:mm:ss"),
-        borrower: loggedInUser,
         method: "delete",
       }),
     });
@@ -135,27 +163,37 @@ export default function Book() {
             />
           )}
           <h3 className={styles.bookName}>{book.title}</h3>
+          <p className={styles.bookID}>{`UUID #${book.id}`}</p>
           <p className={styles.bookDesc}>{book.description}</p>
           <h3 className={styles.bookStatus}>
             {book.status === null ? "✔️可借用" : `❌已被${book.borrower}借用`}
           </h3>
-          <button
-            className={`${styles.borrowButton} ${
-              book.status !== null || !loggedInUser ? styles.disabled : ""
-            }`}
-            onClick={() => handleBorrow(bookId)}
-            disabled={book.status !== null || !loggedInUser}
-          >
-            {!loggedInUser ? "請先登入" : "借用"}
-          </button>
+          {book.status == null && (
+            <button
+              className={`${styles.borrowButton} ${
+                book.status !== null || !loggedInUser ? styles.disabled : ""
+              }`}
+              onClick={() => handleBorrow(bookId)}
+              disabled={!loggedInUser}
+            >
+              {!loggedInUser ? "請先登入" : "借用"}
+            </button>
+          )}
+
+          {(book.borrower == loggedInUser || isAdmin) &&
+            book.status !== null && (
+              <button
+                className={styles.cancelButton}
+                onClick={() => handleCancel(bookId)}
+              >
+                取消借用
+              </button>
+            )}
 
           {isAdmin && (
             <button
-              className={`${styles.deleteButton} ${
-                book.status !== null || !loggedInUser ? styles.disabled : ""
-              }`}
+              className={styles.deleteButton}
               onClick={() => handleDelete(bookId)}
-              disabled={book.status !== null || !loggedInUser}
             >
               刪除
             </button>
