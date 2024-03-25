@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { isMobileDevice } from "../js/cookiesocute";
 import RandomVideo from "../js/randomBg";
-import accountData from "../json/account.json";
+import accountData from "../public/account.json";
 import EyeIcon from "../components/EyeIcon";
 import EyeSlashIcon from "../components/EyeOffIcon";
 

@@ -18,16 +18,17 @@ export default function List() {
       const bookData = await response.json();
 
       setBooks(bookData);
+
+      const cookies = document.cookie.split("; ");
+      const loggedInUserCookie = cookies.find((cookie) =>
+        cookie.startsWith("loggedInUser=")
+      );
+      const loggedInUser = loggedInUserCookie
+        ? loggedInUserCookie.split("=")[1]
+        : null;
+      setLoggedInUsername(loggedInUser);
     };
 
-    const cookies = document.cookie.split("; ");
-    const loggedInUserCookie = cookies.find((cookie) =>
-      cookie.startsWith("loggedInUser=")
-    );
-    const loggedInUser = loggedInUserCookie
-      ? loggedInUserCookie.split("=")[1]
-      : null;
-    setLoggedInUsername(loggedInUser);
     fetchData();
   }, []);
 
