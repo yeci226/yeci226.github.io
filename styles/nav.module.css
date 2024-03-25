@@ -249,9 +249,9 @@
     margin-left: -40%;
   }
   .logoContainer {
+    margin-left: 0px;
     transition: none;
   }
-  
   .logoContainer.hidden {
     transition: none;
   }
@@ -277,5 +277,12 @@
   }
   .addButton{
     margin-left: -30%;
+  }
+  .logoContainer {
+    margin-left: 0px;
+    transition: none;
+  }
+  .logoContainer.hidden {
+    transition: none;
   }
 }
