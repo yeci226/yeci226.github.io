@@ -248,6 +248,13 @@
   .addButton{
     margin-left: -40%;
   }
+  .logoContainer {
+    transition: none;
+  }
+  
+  .logoContainer.hidden {
+    transition: none;
+  }
 }
 
 @media (max-width: 400px) {
