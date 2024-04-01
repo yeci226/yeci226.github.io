@@ -17,7 +17,7 @@ export default function Login() {
   const [passwordError, setPasswordError] = useState(false);
   const [loggedInUsername, setLoggedInUsername] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
-  const [isSecondFactorVerified, setIsSecondFactorVerified] = useState(false); // 新增多重驗證狀態
+  const [isSecondFactorVerified, setIsSecondFactorVerified] = useState(false);
 
   useEffect(() => {
     setIsMobile(isMobileDevice());

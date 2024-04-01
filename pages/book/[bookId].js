@@ -12,6 +12,8 @@ export default function Book() {
   const { bookId } = router.query;
   const [book, setBook] = useState(null);
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [borrowedBooksCount, setBorrowedBooksCount] = useState(null);
+  const borrowBookLimit = 3;
 
   useEffect(() => {
     const fetchBookData = async () => {
@@ -20,7 +22,11 @@ export default function Book() {
       const selectedBook = bookData.find(
         (book) => book.id === parseInt(bookId, 10)
       );
+      const borrowedBooksCount = bookData.filter(
+        (book) => book.borrower === loggedInUser
+      ).length;
       setBook(selectedBook);
+      setBorrowedBooksCount(borrowedBooksCount);
     };
 
     if (bookId) {
@@ -193,12 +199,20 @@ export default function Book() {
           {book.status == null && (
             <button
               className={`${styles.borrowButton} ${
-                book.status !== null || !loggedInUser ? styles.disabled : ""
+                borrowedBooksCount >= borrowBookLimit ||
+                book.status !== null ||
+                !loggedInUser
+                  ? styles.disabled
+                  : ""
               }`}
               onClick={() => handleBorrow(bookId)}
-              disabled={!loggedInUser}
+              disabled={!loggedInUser || borrowedBooksCount >= borrowBookLimit}
             >
-              {!loggedInUser ? "請先登入" : "借用"}
+              {!loggedInUser
+                ? "請先登入"
+                : borrowedBooksCount >= borrowBookLimit
+                ? "已達最大借用數量"
+                : "借用"}
             </button>
           )}
 
