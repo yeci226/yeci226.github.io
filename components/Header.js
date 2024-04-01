@@ -57,6 +57,7 @@ export default function Header() {
 
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
+    const author = document.getElementById("author")?.value ?? "";
     const image = document.getElementById("image")?.value ?? "";
     console.log(image);
     if (!title) {
@@ -79,7 +80,7 @@ export default function Header() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        book: { title, description, image },
+        book: { title, description, author, image },
         method: "add",
       }),
     });
@@ -172,7 +173,20 @@ export default function Header() {
             ></input>
           </div>
           {descriptionError && <p className={styles.error}>簡介不得為空</p>}
-          <label className={styles.inputTitle} htmlFor="description">
+          <label className={styles.inputTitle} htmlFor="author">
+            書籍作者
+          </label>
+          <div className={styles.passwordContainer}>
+            <input
+              className={`${styles.input} ${
+                descriptionError ? styles.errorInput : ""
+              }`}
+              type="text"
+              placeholder="(可選) 請輸入書籍作者"
+              id="author"
+            ></input>
+          </div>
+          <label className={styles.inputTitle} htmlFor="image">
             書籍圖片
           </label>
           <div className={styles.passwordContainer}>

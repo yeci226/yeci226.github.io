@@ -64,6 +64,13 @@
     font-family: 'Noto Sans TC', sans-serif;
 }
 
+.returnIcon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
 .bookList {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -78,8 +85,9 @@
     font-family: 'Noto Sans TC', sans-serif;
 }
 
-.bookID {
-    font-size: 8px;
+.bookAuthor
+ {
+    font-size: 16px;
     color: rgb(94, 94, 94);
     font-family: 'Noto Sans TC', sans-serif;
 }

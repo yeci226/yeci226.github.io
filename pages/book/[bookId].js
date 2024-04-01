@@ -153,6 +153,26 @@ export default function Book() {
 
       <RandomVideo />
       <div className={styles.bookContainer}>
+        <div
+          className={styles.returnIcon}
+          onClick={() => window.history.back()}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-arrow-left"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </div>
         <div className={styles.book}>
           {book.image && (
             <img
@@ -163,7 +183,9 @@ export default function Book() {
             />
           )}
           <h3 className={styles.bookName}>{book.title}</h3>
-          <p className={styles.bookID}>{`UUID #${book.id}`}</p>
+          <p className={styles.bookAuthor}>
+            {book.author ? `作者 ${book.author}` : "作者未知"}
+          </p>
           <p className={styles.bookDesc}>{book.description}</p>
           <h3 className={styles.bookStatus}>
             {book.status === null ? "✔️可借用" : `❌已被${book.borrower}借用`}

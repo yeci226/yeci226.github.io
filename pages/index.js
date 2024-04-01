@@ -54,7 +54,7 @@ export default function Home() {
       <Header />
       <div className={styles.title}>
         <h1>歡迎來到土撥鼠圖書館</h1>
-        <p>觸手可及的知識世界</p>
+        <p>有兩件事可以改變我們的生活：你遇見什麼人，以及你讀什麼書</p>
       </div>
 
       <div className={styles.buttonContainer}>

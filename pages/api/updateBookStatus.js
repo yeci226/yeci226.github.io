@@ -18,6 +18,7 @@ export default async function handler(req, res) {
           id: uniqueId,
           title: book.title,
           description: book.description,
+          author: book?.author ?? null,
           image: book?.image ?? "",
           status: null,
           borrower: null,
