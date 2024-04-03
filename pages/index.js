@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import RandomVideo from "../js/randomBg";
 
 export default function Home() {
@@ -52,6 +53,7 @@ export default function Home() {
       </div>
 
       <Header />
+      <Footer />
       <div className={styles.title}>
         <h1>歡迎來到土撥鼠圖書館</h1>
         <p>有兩件事可以改變我們的生活：你遇見什麼人，以及你讀什麼書</p>

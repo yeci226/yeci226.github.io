@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import RandomVideo from "../../js/randomBg";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import styles from "../../styles/book.module.css";
 import moment from "moment";
 import accountData from "../../public/account.json";
@@ -148,6 +149,7 @@ export default function Book() {
   return (
     <div>
       <Header />
+      <Footer />
       <Head>
         <title>土撥鼠圖書館 | {book.title}</title>
         <link rel="icon" href={book.image ? book.image : "/icon.ico"} />

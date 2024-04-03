@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/books.module.css";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import RandomVideo from "../js/randomBg";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -90,77 +91,80 @@ export default function List() {
   }
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>土撥鼠圖書館 | 書籍資訊</title>
-        <link rel="icon" href="/icon.ico" />
-        <meta
-          name="viewport"
-          content="width=device-width,height=device-height,initial-scale=1.0"
-        />
-      </Head>
+    <div>
+      <Header />
+      <Footer />
+      <div className={styles.container}>
+        <Head>
+          <title>土撥鼠圖書館 | 書籍資訊</title>
+          <link rel="icon" href="/icon.ico" />
+          <meta
+            name="viewport"
+            content="width=device-width,height=device-height,initial-scale=1.0"
+          />
+        </Head>
 
-      <div>
-        <RandomVideo />
-      </div>
+        <div>
+          <RandomVideo />
+        </div>
 
-      <main>
-        <Header />
-        <h1 className={styles.title}>我的書籍</h1>
-        <div className={styles.textSpace}>這是顯示我已借用書籍的地方</div>
+        <main>
+          <h1 className={styles.title}>我的書籍</h1>
+          <div className={styles.textSpace}>這是顯示我已借用書籍的地方</div>
 
-        <input
-          className={styles.searchBar}
-          type="text"
-          placeholder="搜尋我的書籍..."
-          value={searchTerm}
-          onChange={handleSearch}
-        />
+          <input
+            className={styles.searchBar}
+            type="text"
+            placeholder="搜尋我的書籍..."
+            value={searchTerm}
+            onChange={handleSearch}
+          />
 
-        <span className={styles.borrowBookLimitLabel}>
-          已借用書籍 {`${borrowedBooksCount}/${borrowBookLimit}`}
-        </span>
+          <span className={styles.borrowBookLimitLabel}>
+            已借用書籍 {`${borrowedBooksCount}/${borrowBookLimit}`}
+          </span>
 
-        {filteredBooks.length === 0 && (
-          <div className={styles.noResults}>沒有相關書籍搜尋結果</div>
-        )}
+          {filteredBooks.length === 0 && (
+            <div className={styles.noResults}>沒有相關書籍搜尋結果</div>
+          )}
 
-        {filteredBooks.length > 0 && (
-          <div>
-            <div className={styles.bookContainer}>
-              <div className={styles.bookList}>
-                {filteredBooks.map(
-                  (book) =>
-                    book.borrower === loggedInUsername && (
-                      <a key={book.id} className={styles.books}>
-                        {book.image && (
-                          <img
-                            src={book.image}
-                            alt={book.title}
-                            className={styles.image}
-                            draggable="false"
-                          />
-                        )}
-                        <h3 className={styles.bookName}>{book.title}</h3>
-                        <p className={styles.bookDesc}>{book.description}</p>
-                        <button
-                          className={styles.returnBtn}
-                          onClick={() => handleReturn(book)}
-                        >
-                          歸還
-                        </button>
-                        <span className={styles.bookBorrowedTime}>
-                          已借用{" "}
-                          {formatDuration(moment() - moment(book.status))}
-                        </span>
-                      </a>
-                    )
-                )}
+          {filteredBooks.length > 0 && (
+            <div>
+              <div className={styles.bookContainer}>
+                <div className={styles.bookList}>
+                  {filteredBooks.map(
+                    (book) =>
+                      book.borrower === loggedInUsername && (
+                        <a key={book.id} className={styles.books}>
+                          {book.image && (
+                            <img
+                              src={book.image}
+                              alt={book.title}
+                              className={styles.image}
+                              draggable="false"
+                            />
+                          )}
+                          <h3 className={styles.bookName}>{book.title}</h3>
+                          <p className={styles.bookDesc}>{book.description}</p>
+                          <button
+                            className={styles.returnBtn}
+                            onClick={() => handleReturn(book)}
+                          >
+                            歸還
+                          </button>
+                          <span className={styles.bookBorrowedTime}>
+                            已借用{" "}
+                            {formatDuration(moment() - moment(book.status))}
+                          </span>
+                        </a>
+                      )
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        )}
-      </main>
+          )}
+        </main>
+      </div>
     </div>
   );
 }
