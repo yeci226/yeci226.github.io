@@ -62,7 +62,30 @@ export default function List() {
       });
 
       if (response.ok) {
-        window.alert(`你已成功歸還 ${book.title}`);
+        const borrowedTime =
+          moment().valueOf() / 1000 - moment(book.status).valueOf() / 1000;
+
+        if (borrowedTime > 259200) {
+          const response = await fetch(`/api/updateBookStatus`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              borrower: book.borrower,
+              method: "addPoints",
+            }),
+          });
+
+          if (response.ok) {
+            window.alert(
+              `你已成功歸還 ${book.title} 並且因為借用超過三天，已獲得一點積分！`
+            );
+          }
+        } else {
+          window.alert(`你已成功歸還 ${book.title}`);
+        }
+
         router.reload();
       } else {
         window.alert("更新書籍狀態失敗");

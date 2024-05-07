@@ -5,8 +5,8 @@
     "description": "懂不懂量子力學是物理學家的事，會不會用就是咱們的事，利用好的話，你就可能是下一個馬雲或比爾‧蓋茲。",
     "author": "羅金海",
     "image": "https://cdn.readmoo.com/cover/ed/aiifngg_460x580.jpg?v=1707273209",
-    "status": "2024-03-26 15:49:19",
-    "borrower": "admin"
+    "status": null,
+    "borrower": null
   },
   {
     "id": 2,
@@ -23,15 +23,15 @@
     "description": "什麼是自由？什麼是勇氣？要滿足大家的期待，才是好人嗎？多希望年輕時，就看過這本書，那麼也許會讓人懂得，不用辛苦地活在別人的期望裡",
     "author": "岸見一郎, 古賀史健",
     "image": "https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&quality=80&url=https%3A%2F%2Fimages.vocus.cc%2F5d775022-29ca-4b8d-b10e-778ba7ae2431.webp&width=740&sign=t0I373Ols2I26oUDienW3UaeU0VNnB5EK-8PaMS99R4",
-    "status": "2024-03-26 15:51:21",
-    "borrower": "admin"
+    "status": null,
+    "borrower": null
   },
   {
     "id": 1711435431944,
     "title": "nerd",
     "description": "nerd",
     "image": "",
-    "status": "2024-03-26 15:55:44",
-    "borrower": "admin"
+    "status": null,
+    "borrower": null
   }
 ]

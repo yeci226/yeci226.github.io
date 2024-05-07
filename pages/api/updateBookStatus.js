@@ -11,6 +11,27 @@ export default async function handler(req, res) {
       );
       let books = JSON.parse(data);
 
+      if (method == "addPoints") {
+        const datas = await fs.readFile(
+          path.join(process.cwd() + "/public/", "otherData.json")
+        );
+        let data = JSON.parse(datas);
+
+        data[borrower] ?? (data[borrower] = {});
+
+        data[borrower]?.points
+          ? data[borrower].points++
+          : (data[borrower].points = 1);
+
+        await fs.writeFile(
+          path.join(process.cwd() + "/public/", "otherData.json"),
+          JSON.stringify(data, null, 2)
+        );
+        return res
+          .status(200)
+          .json({ success: true, message: "使用者狀態已更新" });
+      }
+
       if (method == "add") {
         const uniqueId = Date.now();
 
