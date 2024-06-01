@@ -6,6 +6,10 @@
 
 You are free to make changes to this project, just include the original author's URL in the website or any form of public documentation.
 
+## 須知
+
+github.io網址僅展示部分功能，若要使用完整功能請自行架設
+
 ## 連結
 * <a href="https://discord.gg/mPCEATJDve"><b>支援伺服器</b></a>
 
